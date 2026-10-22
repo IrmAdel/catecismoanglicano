@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="ico" href="https://irmadel.github.io/catecismomaiordesaopiox/favicon.ico">
+  <title>Como rezar o Terço e o Rosário</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f2ede4;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1e1a16;
+      padding: 1.2rem;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fffcf7;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+      padding: 2rem 2.2rem;
+      border-radius: 6px;
+    }
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      border-bottom: 2px solid #b9a68c;
+      padding-bottom: 0.6rem;
+      margin-bottom: 0.3rem;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: #5f4a34;
+      margin-bottom: 2rem;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #3d2e1e;
+      text-decoration: none;
+      border-bottom: 1px dotted #b9a68c;
+      padding-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+    .back:hover {
+      color: #8b6f4f;
+      border-bottom-color: #8b6f4f;
+    }
+
+    .mysteries {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+    .mystery-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      background: #f7f1e9;
+      border-radius: 12px;
+      padding: 1rem;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .mystery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .mystery-card.active {
+      border-color: #b9a68c;
+      background: #efe8dd;
+    }
+    .mystery-card .img-wrapper {
+      width: 100%;
+      height: 160px;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .mystery-card[data-mystery="0"] .img-wrapper {
+      background-image: url('https://imgs.search.brave.com/mglaM4L6_4sojT0uYDbVtTXlmzRjmzOUHanvJQj1Y4o/rs:fit:860:0:0:0/g:ce/aHR0cDovL2Jsb2cu/Y2FuY2Fvbm92YS5j/b20vdG9kb2RlbWFy/aWEvZmlsZXMvMjAx/Ny8wMy9BLUFudW5j/aWElQzMlQTclQzMl/QTNvLWRvLUFuam8t/ZS1hLXJlc3Bvc3Rh/LWRlLU1hcmlhLmpw/Zw');
+    }
+    .mystery-card[data-mystery="1"] .img-wrapper {
+      background-image: url('https://imgs.search.brave.com/YBLc0vljko1yTLOLUelm1wN0A3yzzfFZ8PwFGvV6XvY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGlyaW9jYXRvbGlj/by5jb20uYnIvaW1n/L29yYWNvZXMvdmlh/X3NhY3JhLzEyX2Vz/dGFjYW9fdmlhX3Nh/Y3JhLndlYnA');
+    }
+    .mystery-card[data-mystery="2"] .img-wrapper {
+      background-image: url('https://imgs.search.brave.com/aT3YEcXCw4XpKJU_SHL6bjPZIKFJV9oX937mxfFLfjI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kaW9j/ZXNlZGVzYW9qb2Fv/ZGVscmVpLmNvbS5i/ci93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8wOC9PbmRlLWVz/dGEtYS1Bc3N1bmNh/by1kZS1NYXJpYS1u/YS1Fc2NyaXR1cmEt/MTAyNHg1NzYuanBn');
+    }
+    .mystery-card h3 {
+      font-size: 1rem;
+      color: #3d2e1e;
+      margin: 0.3rem 0;
+    }
+    .mystery-card p {
+      font-size: 0.8rem;
+      color: #5f4a34;
+      margin: 0;
+    }
+
+    .rosary-container {
+      background: #f7f1e9;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      margin: 1.5rem 0;
+      border: 1px solid #d6cbbc;
+    }
+    .rosary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .rosary-header .mystery-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #3d2e1e;
+    }
+    .rosary-header .bead-counter {
+      font-size: 0.95rem;
+      color: #5f4a34;
+    }
+
+    .rosary-beads {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 0;
+      min-height: 120px;
+      position: relative;
+    }
+
+    .bead-row-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .bead-row-top .bead {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #b9a68c;
+      background: #d6cbbc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: transparent;
+    }
+    .bead-row-top .bead:hover {
+      transform: scale(1.1);
+    }
+    .bead-row-top .bead.active {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+      box-shadow: 0 0 16px rgba(185, 166, 140, 0.6);
+      color: #1e1a16;
+      transform: scale(1.15);
+    }
+    .bead-row-top .bead.visited {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+      color: #1e1a16;
+    }
+
+    .bead-row-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .bead-row-bottom .bead {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid #b9a68c;
+      background: #d6cbbc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: transparent;
+    }
+    .bead-row-bottom .bead:hover {
+      transform: scale(1.1);
+    }
+    .bead-row-bottom .bead.active {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+      box-shadow: 0 0 20px rgba(185, 166, 140, 0.6);
+      color: #1e1a16;
+      transform: scale(1.15);
+    }
+    .bead-row-bottom .bead.visited {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+      color: #1e1a16;
+    }
+
+    .intro-beads {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .intro-beads .bead {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #b9a68c;
+      background: #d6cbbc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: transparent;
+    }
+    .intro-beads .bead:hover {
+      transform: scale(1.1);
+    }
+    .intro-beads .bead.active {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+      box-shadow: 0 0 16px rgba(185, 166, 140, 0.6);
+      color: #1e1a16;
+      transform: scale(1.15);
+    }
+    .intro-beads .bead.visited {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+      color: #1e1a16;
+    }
+    .intro-beads .bead.cross {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      background: #c9a84c;
+      border-color: #a88d70;
+      color: #1e1a16;
+    }
+    .intro-beads .bead.cross.active {
+      background: #a88d70;
+      border-color: #8b6f4f;
+      box-shadow: 0 0 20px rgba(168, 141, 112, 0.6);
+      transform: scale(1.2);
+    }
+    .intro-beads .bead.cross.visited {
+      background: #a88d70;
+      border-color: #8b6f4f;
+    }
+    .intro-beads .bead.ave-initial {
+      width: 36px;
+      height: 36px;
+      font-size: 0.6rem;
+      background: #d6cbbc;
+      border-color: #b9a68c;
+      color: #1e1a16;
+    }
+    .intro-beads .bead.ave-initial.active {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+      box-shadow: 0 0 16px rgba(185, 166, 140, 0.6);
+      transform: scale(1.15);
+    }
+    .intro-beads .bead.ave-initial.visited {
+      background: #b9a68c;
+      border-color: #8b6f4f;
+    }
+    .intro-beads .bead-separator {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #b9a68c;
+      margin: 0 0.1rem;
+    }
+
+    .indulgence-notice {
+      background: #f7f1e9;
+      border: 2px solid #b9a68c;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .indulgence-notice h4 {
+      color: #3d2e1e;
+      margin-bottom: 0.5rem;
+    }
+    .indulgence-notice p {
+      font-size: 0.95rem;
+      color: #4d3a26;
+      margin-bottom: 0.3rem;
+    }
+    .indulgence-notice .highlight {
+      color: #8b6f4f;
+      font-weight: 700;
+    }
+
+    .rosary-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .rosary-nav button {
+      background: #b9a68c;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1e1a16;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .rosary-nav button:hover {
+      background: #a88d70;
+      transform: scale(1.02);
+    }
+    .rosary-nav button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .rosary-nav .bead-info {
+      font-size: 0.95rem;
+      color: #5f4a34;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    /* ===== ORAÇÃO - ESTILO MELHORADO ===== */
+    .prayer-display {
+      background: #fffcf7;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-top: 1.5rem;
+      border: 1px solid #d6cbbc;
+      min-height: 200px;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .prayer-display .prayer-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #3d2e1e;
+      text-align: center;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #d6cbbc;
+      padding-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+    .prayer-text {
+      display: none;
+      max-height: 500px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+    .prayer-text.active {
+      display: block;
+    }
+    .prayer-text::-webkit-scrollbar {
+      width: 6px;
+    }
+    .prayer-text::-webkit-scrollbar-track {
+      background: #f2ede4;
+      border-radius: 10px;
+    }
+    .prayer-text::-webkit-scrollbar-thumb {
+      background: #b9a68c;
+      border-radius: 10px;
+    }
+    .prayer-text p {
+      margin-bottom: 0.6rem;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #1e1a16;
+    }
+    .prayer-text .prayer-section {
+      margin-bottom: 0.8rem;
+    }
+    .prayer-text .prayer-section .section-title {
+      font-weight: 700;
+      color: #3d2e1e;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 0.2rem;
+      border-left: 3px solid #b9a68c;
+      padding-left: 0.6rem;
+    }
+    .prayer-text .prayer-section .section-content {
+      padding-left: 1rem;
+    }
+    .prayer-text .response {
+      color: #5f4a34;
+      font-style: italic;
+      padding-left: 1.2rem;
+      display: block;
+      margin-top: -0.2rem;
+    }
+    .prayer-text .rubric {
+      font-style: italic;
+      color: #5f4a34;
+      font-size: 0.85rem;
+      margin: 0.3rem 0;
+      text-align: center;
+      background: #f7f1e9;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+    }
+    .prayer-text .verse-label {
+      font-weight: 600;
+      color: #5f4a34;
+      font-size: 0.9rem;
+      display: inline-block;
+      min-width: 30px;
+    }
+    .prayer-text .prayer-content {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .prayer-text .prayer-content .prayer-line {
+      display: block;
+      padding-left: 0.5rem;
+    }
+    .prayer-text .prayer-content .prayer-line-indent {
+      display: block;
+      padding-left: 2rem;
+      color: #4d3a26;
+    }
+    .prayer-text .litany-response {
+      display: block;
+      padding-left: 2rem;
+      color: #5f4a34;
+      font-style: italic;
+    }
+
+    .prayer-lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .prayer-lang-toggle button {
+      background: #d6cbbc;
+      border: none;
+      padding: 0.3rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #3d2e1e;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: 'Georgia', 'Times New Roman', serif;
+    }
+    .prayer-lang-toggle button:hover {
+      background: #b9a68c;
+    }
+    .prayer-lang-toggle button.active {
+      background: #b9a68c;
+      color: #1e1a16;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    /* ===== MODO ESCURO ===== */
+    .dark-mode {
+      background: #1e1a16;
+      color: #d4c9bb;
+    }
+    .dark-mode .page {
+      background: #28221c;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+    }
+    .dark-mode h1 {
+      border-bottom-color: #6b5d4e;
+      color: #e8dfd6;
+    }
+    .dark-mode .subtitle {
+      color: #b8a48a;
+    }
+    .dark-mode .back {
+      color: #d4c9bb;
+      border-bottom-color: #6b5d4e;
+    }
+    .dark-mode .back:hover {
+      color: #e8c9a0;
+    }
+    .dark-mode .mystery-card {
+      background: #332b23;
+    }
+    .dark-mode .mystery-card.active {
+      border-color: #a88d70;
+      background: #3d3229;
+    }
+    .dark-mode .mystery-card h3 {
+      color: #d4c9bb;
+    }
+    .dark-mode .mystery-card p {
+      color: #b8a48a;
+    }
+    .dark-mode .mystery-card .img-wrapper {
+      filter: brightness(0.9);
+    }
+    .dark-mode .rosary-container {
+      background: #332b23;
+      border-color: #4a3d32;
+    }
+    .dark-mode .rosary-header .mystery-name {
+      color: #e0d3c2;
+    }
+    .dark-mode .rosary-header .bead-counter {
+      color: #b8a48a;
+    }
+    .dark-mode .bead {
+      border-color: #6b5d4e;
+      background: #4a3d32;
+    }
+    .dark-mode .bead.active {
+      background: #a88d70;
+      border-color: #e8c9a0;
+      box-shadow: 0 0 16px rgba(168, 141, 112, 0.4);
+      color: #1e1a16;
+    }
+    .dark-mode .bead.visited {
+      background: #6b5d4e;
+      border-color: #a88d70;
+      color: #d4c9bb;
+    }
+    .dark-mode .bead.cross {
+      background: #6b5d4e;
+      border-color: #a88d70;
+      color: #d4c9bb;
+    }
+    .dark-mode .bead.cross.active {
+      background: #a88d70;
+      border-color: #e8c9a0;
+      box-shadow: 0 0 20px rgba(168, 141, 112, 0.5);
+    }
+    .dark-mode .bead.cross.visited {
+      background: #8a7a68;
+      border-color: #a88d70;
+    }
+    .dark-mode .bead.ave-initial {
+      background: #4a3d32;
+      border-color: #6b5d4e;
+      color: #d4c9bb;
+    }
+    .dark-mode .bead.ave-initial.active {
+      background: #a88d70;
+      border-color: #e8c9a0;
+      box-shadow: 0 0 16px rgba(168, 141, 112, 0.4);
+      color: #1e1a16;
+    }
+    .dark-mode .bead.ave-initial.visited {
+      background: #6b5d4e;
+      border-color: #a88d70;
+      color: #d4c9bb;
+    }
+    .dark-mode .bead-separator {
+      background: #6b5d4e;
+    }
+    .dark-mode .rosary-nav button {
+      background: #5a4c3e;
+      color: #e8dfd6;
+    }
+    .dark-mode .rosary-nav button:hover {
+      background: #6b5d4e;
+    }
+    .dark-mode .rosary-nav .bead-info {
+      color: #b8a48a;
+    }
+    .dark-mode .prayer-display {
+      background: #28221c;
+      border-color: #4a3d32;
+    }
+    .dark-mode .prayer-display .prayer-title {
+      color: #e0d3c2;
+      border-bottom-color: #4a3d32;
+    }
+    .dark-mode .prayer-text p {
+      color: #d4c9bb;
+    }
+    .dark-mode .prayer-text .prayer-section .section-title {
+      color: #e0d3c2;
+      border-left-color: #a88d70;
+    }
+    .dark-mode .prayer-text .response {
+      color: #b8a48a;
+    }
+    .dark-mode .prayer-text .rubric {
+      color: #b8a48a;
+      background: #332b23;
+    }
+    .dark-mode .prayer-text .verse-label {
+      color: #b8a48a;
+    }
+    .dark-mode .prayer-text .prayer-content .prayer-line-indent {
+      color: #b8a48a;
+    }
+    .dark-mode .prayer-text .litany-response {
+      color: #b8a48a;
+    }
+    .dark-mode .prayer-text::-webkit-scrollbar-track {
+      background: #332b23;
+    }
+    .dark-mode .prayer-text::-webkit-scrollbar-thumb {
+      background: #6b5d4e;
+    }
+    .dark-mode .prayer-lang-toggle button {
+      background: #4a3d32;
+      color: #b8a48a;
+    }
+    .dark-mode .prayer-lang-toggle button:hover {
+      background: #6b5d4e;
+    }
+    .dark-mode .prayer-lang-toggle button.active {
+      background: #a88d70;
+      color: #1e1a16;
+    }
+    .dark-mode .indulgence-notice {
+      background: #332b23;
+      border-color: #4a3d32;
+    }
+    .dark-mode .indulgence-notice h4 {
+      color: #e0d3c2;
+    }
+    .dark-mode .indulgence-notice p {
+      color: #b8a48a;
+    }
+    .dark-mode .indulgence-notice .highlight {
+      color: #e8c9a0;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 0.5rem; }
+      .page { padding: 1rem 0.8rem; }
+      h1 { font-size: 1.4rem; }
+      .mysteries {
+        gap: 0.5rem;
+      }
+      .mystery-card {
+        padding: 0.5rem;
+      }
+      .mystery-card .img-wrapper {
+        height: 100px;
+      }
+      .mystery-card h3 {
+        font-size: 0.85rem;
+      }
+      .mystery-card p {
+        font-size: 0.7rem;
+      }
+      .rosary-container {
+        padding: 1rem 0.8rem;
+      }
+      .bead-row-top .bead {
+        width: 26px;
+        height: 26px;
+        font-size: 0.4rem;
+      }
+      .bead-row-bottom .bead {
+        width: 32px;
+        height: 32px;
+        font-size: 0.55rem;
+      }
+      .intro-beads .bead {
+        width: 28px;
+        height: 28px;
+        font-size: 0.45rem;
+      }
+      .intro-beads .bead.cross {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+      }
+      .intro-beads .bead.ave-initial {
+        width: 30px;
+        height: 30px;
+        font-size: 0.5rem;
+      }
+      .rosary-nav button {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+      }
+      .prayer-display {
+        padding: 1rem 1rem;
+      }
+      .prayer-text p {
+        font-size: 0.9rem;
+      }
+      .prayer-lang-toggle button {
+        padding: 0.2rem 1rem;
+        font-size: 0.8rem;
+      }
+      .indulgence-notice {
+        padding: 1rem 1rem;
+      }
+      .indulgence-notice p {
+        font-size: 0.85rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .mystery-card .img-wrapper {
+        height: 75px;
+      }
+      .mystery-card h3 {
+        font-size: 0.75rem;
+      }
+      .bead-row-top .bead {
+        width: 22px;
+        height: 22px;
+      }
+      .bead-row-bottom .bead {
+        width: 28px;
+        height: 28px;
+        font-size: 0.45rem;
+      }
+      .intro-beads .bead {
+        width: 24px;
+        height: 24px;
+      }
+      .intro-beads .bead.cross {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+      }
+      .intro-beads .bead.ave-initial {
+        width: 26px;
+        height: 26px;
+        font-size: 0.45rem;
+      }
+      .rosary-nav button {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+      }
+      .prayer-text p {
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Como rezar o Terço e o Rosário</h1>
+  <p class="subtitle">Método completo com os mistérios gozosos, dolorosos e gloriosos</p>
+
+  <div style="text-align: right; margin-bottom: 1rem;">
+    <button id="toggleTheme" style="
+      background: #b9a68c;
+      border: none;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1e1a16;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+    ">🌙</button>
+  </div>
+
+  <div class="mysteries">
+    <div class="mystery-card active" data-mystery="0">
+      <div class="img-wrapper"></div>
+      <h3>Mistérios Gozosos</h3>
+      <p>Segundas e sábados</p>
+    </div>
+    <div class="mystery-card" data-mystery="1">
+      <div class="img-wrapper"></div>
+      <h3>Mistérios Dolorosos</h3>
+      <p>Terças e sextas</p>
+    </div>
+    <div class="mystery-card" data-mystery="2">
+      <div class="img-wrapper"></div>
+      <h3>Mistérios Gloriosos</h3>
+      <p>Quartas, domingos e solenidades</p>
+    </div>
+  </div>
+
+  <div class="rosary-container">
+    <div class="rosary-header">
+      <span class="mystery-name" id="mysteryName">Mistérios Gozosos</span>
+      <span class="bead-counter" id="beadCounter">Início</span>
+    </div>
+
+    <div class="rosary-beads" id="rosaryBeads"></div>
+
+    <div class="rosary-nav">
+      <button id="prevBead" title="Anterior">◀ Anterior</button>
+      <span class="bead-info" id="beadInfo">Início</span>
+      <button id="nextBead" title="Próxima">Próxima ▶</button>
+    </div>
+  </div>
+
+  <div class="prayer-display" id="prayerDisplay">
+    <div class="prayer-title" id="prayerTitle">Sinal da Cruz</div>
+
+    <div class="prayer-lang-toggle">
+      <button id="langLatin" class="active">Latim</button>
+      <button id="langPortuguese">Português</button>
+    </div>
+
+    <div id="prayerLatin" class="prayer-text active"></div>
+    <div id="prayerPortuguese" class="prayer-text"></div>
+  </div>
+
+  <div class="indulgence-notice" id="indulgenceNotice" style="display: none;">
+    <h4>✠ Indulgência do Santo Terço</h4>
+    <p>Se o santo Terço está abençoado por um padre ou diácono e caso você não esteja em pecado mortal, beije a cruz e a medalha para alcançar <strong>indulgência parcial</strong>.</p>
+    <p style="margin-top: 0.5rem;">Caso seu Terço esteja abençoado pelo Papa ou pelo Bispo e seja dia <span class="highlight">29 de junho</span> (dia de São Pedro e São Paulo):</p>
+    <ul style="text-align: left; max-width: 500px; margin: 0.5rem auto; padding-left: 1.5rem;">
+      <li>Beije a cruz e a medalha</li>
+      <li>Reze uma profissão de fé</li>
+      <li>Tenha se confessado</li>
+      <li>Tenha comungado</li>
+      <li>Faça as orações pelas intenções do Papa</li>
+    </ul>
+    <p style="font-weight: 700; color: #8b6f4f;">Para alcançar uma <strong>indulgência plenária</strong>.</p>
+  </div>
+
+  <a href="index.html" class="back">← Voltar ao Catecismo</a>
+
+</div>
+
+<script>
+  // ===== TEMA CLARO/ESCURO =====
+  const toggleBtn = document.getElementById('toggleTheme');
+  const body = document.body;
+
+  function applyTheme(isDark) {
+    if (isDark) {
+      body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️';
+    } else {
+      body.classList.remove('dark-mode');
+      toggleBtn.textContent = '🌙';
+    }
+    localStorage.setItem('catecismo-dark-mode', isDark ? 'true' : 'false');
+  }
+
+  function loadTheme() {
+    const saved = localStorage.getItem('catecismo-dark-mode');
+    if (saved === null) {
+      applyTheme(false);
+      return;
+    }
+    applyTheme(saved === 'true');
+  }
+
+  toggleBtn.addEventListener('click', function() {
+    applyTheme(!body.classList.contains('dark-mode'));
+  });
+
+  loadTheme();
+
+  const langLatinBtn = document.getElementById('langLatin');
+  const langPortugueseBtn = document.getElementById('langPortuguese');
+  const prayerLatin = document.getElementById('prayerLatin');
+  const prayerPortuguese = document.getElementById('prayerPortuguese');
+
+  function setLanguage(lang) {
+    if (lang === 'latin') {
+      prayerLatin.classList.add('active');
+      prayerPortuguese.classList.remove('active');
+      langLatinBtn.classList.add('active');
+      langPortugueseBtn.classList.remove('active');
+    } else {
+      prayerLatin.classList.remove('active');
+      prayerPortuguese.classList.add('active');
+      langLatinBtn.classList.remove('active');
+      langPortugueseBtn.classList.add('active');
+    }
+  }
+
+  langLatinBtn.addEventListener('click', function() { setLanguage('latin'); });
+  langPortugueseBtn.addEventListener('click', function() { setLanguage('portuguese'); });
+
+  // ===== DADOS DOS MISTÉRIOS =====
+  const mysteries = [
+    {
+      name: 'Mistérios Gozosos',
+      beads: ['Anunciação', 'Visitação', 'Natividade', 'Apresentação', 'Encontro no Templo']
+    },
+    {
+      name: 'Mistérios Dolorosos',
+      beads: ['Agonia no Horto', 'Flagelação', 'Coroação de Espinhos', 'Carregamento da Cruz', 'Crucificação']
+    },
+    {
+      name: 'Mistérios Gloriosos',
+      beads: ['Ressurreição', 'Ascensão', 'Pentecostes', 'Assunção', 'Coroação de Maria']
+    }
+  ];
+
+  const mysteryTexts = [
+    [
+      {
+        latinGospel: 'In mense autem sexto, missus est ángelus Gábriel a Deo in civitátem Galilǽæ, cui nomen Názareth, ad vírginem desponsátam viro, cui nomen erat Ioseph, de domo David, et nomen vírginis María.',
+        latinMed: 'Dómine, honorámus Incarnatiónem tuam in sinu Maríæ. Rogámus tibi et Matri Sanctíssimæ, humilitátem et spíritum oratiónis.',
+        portGospel: 'Naquele tempo, o anjo Gabriel foi enviado por Deus a uma cidade da Galileia, chamada Nazaré, a uma virgem, prometida em casamento a um homem chamado José. Ele era descendente de Davi e o nome da virgem era Maria.',
+        portMed: 'Senhor, honramos a Vossa Encarnação no seio de Maria. Vos pedimos e à Mãe Santíssima, humildade e espírito de oração.'
+      },
+      {
+        latinGospel: 'Exsúrgens autem María in diébus illis ábiit in montána cum festinatióne, in civitátem Iuda: et intrávit in domum Zaccharíæ, et salutávit Elísabeth. Et factum est, ut audívit salutatiónem Maríæ Elísabeth, exultávit infans in útero eius: et repléta est Spíritu Sancto Elísabeth: et exclamávit voce magna, et dixit: Benedícta tu inter mulíeres, et benedíctus fructus ventris tui.',
+        latinMed: 'Dómine, honorámus visitatiónem Matris tuæ ad Elísabeth. Rogámus tibi et Matri Sanctíssimæ, caritátem erga próximos.',
+        portGospel: 'Naqueles dias, Maria partiu para a região montanhosa, dirigindo-se, apressadamente, a uma cidade da Judeia. Entrou na casa de Zacarias e cumprimentou Isabel. Quando Isabel ouviu a saudação de Maria, a criança pulou no seu ventre e Isabel ficou cheia do Espírito Santo. Com um grande grito, exclamou: "Bendita és tu entre as mulheres e bendito é o fruto do teu ventre!"',
+        portMed: 'Senhor, honramos a visitação de Vossa Mãe à prima Isabel. Vos pedimos e à Mãe Santíssima, a caridade para com o próximo.'
+      },
+      {
+        latinGospel: 'Factum est autem in diébus illis, éxiit edíctum a Cǽsare Augústo ut describerétur univérsus orbis. Hæc descríptio prima facta est a prǽside Sýriæ Cyríno: et ibant omnes ut profiteréntur sínguli in suam civitátem. Ascéndit autem et Ioseph a Galilǽa de civitáte Názareth in Iudǽam, in civitátem David, quæ vocátur Béthlehem: eo quod esset de domo et família David, ut profiterétur cum María desponsáta sibi uxóre prægnánte. Factum est autem, cum essent ibi, impléti sunt dies, ut páreret. Et péperit fílium suum primogénitum, et pannis eum invólvit, et reclinávit eum in præsépio: quia non erat eis locus in diversório.',
+        latinMed: 'Dómine, honorámus Nativitátem tuam. Rogámus tibi et Matri Sanctíssimæ, detachaméntum a bonis terrenis et amórem paupertátis.',
+        portGospel: 'Aconteceu que naqueles dias, César Augusto publicou um decreto, ordenando o recenseamento de toda a terra. Este primeiro recenseamento foi feito quando Quirino era governador da Síria. Todos iam registrar-se cada um na sua cidade natal. Por ser da família e descendência de Davi, José subiu da cidade de Nazaré, na Galileia, até a cidade de Davi, chamada Belém, na Judeia, para registrar-se com Maria, sua esposa, que estava grávida. Enquanto estavam em Belém, completaram-se os dias para o parto, e Maria deu à luz o seu filho primogênito. Ela o enfaixou e o colocou na manjedoura, pois não havia lugar para eles na hospedaria.',
+        portMed: 'Senhor, honramos o Vosso nascimento. Vos pedimos e à Mãe Santíssima, o desapego dos bens terrenos e o amor à pobreza.'
+      },
+      {
+        latinGospel: 'Et póstquam consummáti sunt dies octo, ut circumciderétur puer, vocátum est nomen eius Iesus, quod vocátum est ab ángelo, prius quam in útero conciperétur. Et póstquam impléti sunt dies purgatiónis eius secúndum legem Moysi, tulérunt illum in Ierúsalem ut sísterent eum Dómino, sicut scriptum est in lege Dómini: Quia omne masculínum adapériens vulvam, sanctum Dómino vocábitur: et ut darent hóstiam secúndum quod dictum est in lege Dómini par túrturum, aut duos pullos columbárum.',
+        latinMed: 'Dómine, honorámus Præsentatiónem tuam in Templo. Rogámus tibi et Matri Sanctíssimæ, ut unusquísque nostrum consecrétur Patri Ætérno.',
+        portGospel: 'No oitavo dia, quando o menino devia ser circuncidado, deram-lhe o nome de Jesus, como fora chamado pelo anjo antes de ser concebido no ventre da mãe. E quando se completaram os dias para a purificação, segundo a lei de Moisés, levaram o menino a Jerusalém para apresentá-lo ao Senhor, conforme está escrito na Lei do Senhor: "Todo primogênito do sexo masculino deve ser consagrado ao Senhor." Para tanto, deviam oferecer em sacrifício um par de rolas ou dois pombinhos, como está escrito na Lei do Senhor.',
+        portMed: 'Senhor, honramos a Vossa apresentação no Templo. Vos pedimos e à Mãe Santíssima, que cada um de nós seja consagrado ao Pai Eterno.'
+      },
+      {
+        latinGospel: 'Et ibant paréntes eius per omnes annos in Ierúsalem, in die sollémni Paschæ. Et cum factus esset annórum duódecim, ascendéntibus illis in Ierúsalem secúndum consuetúdinem diei festi, consummatísque diébus, cum redírent, remánsit puer Iesus in Ierúsalem, et non cognovérunt paréntes eius. Existimántes autem illum esse in comitátu, venérunt iter diei, et requirébant eum inter cognátos et notos. Et non inveniéntes, regréssi sunt in Ierúsalem, requiréntes eum. Et factum est, post tríduum invenérunt illum in templo sedéntem in médio doctórum, audiéntem illos, et interrogántem eos. Stupébant autem omnes qui eum audiébant, super prudéntia et respónsis eius.',
+        latinMed: 'Dómine, honorámus perditiónem et reinventiónem tuam per Maríam et Ioseph. Rogámus tibi et Matri Sanctíssimæ, amórem domus et rerum Patris.',
+        portGospel: 'Os pais de Jesus iam todos os anos a Jerusalém, para a festa da Páscoa. Quando ele completou doze anos, subiram para a festa, como de costume. Passados os dias da Páscoa, começaram a viagem de volta, mas o menino Jesus ficou em Jerusalém, sem que seus pais o notassem. Pensando que ele estivesse na caravana, caminharam um dia inteiro. Depois começaram a procurá-lo entre os parentes e conhecidos. Não o tendo encontrado, voltaram para Jerusalém à sua procura. Três dias depois, o encontraram no Templo. Estava sentado no meio dos mestres, escutando e fazendo perguntas. Todos os que ouviam o menino estavam maravilhados com sua inteligência e suas respostas.',
+        portMed: 'Senhor, honramos Vossa perda e o reencontro por Maria e José. Vos pedimos e à Mãe Santíssima, o amor à casa e às coisas do Pai.'
+      }
+    ],
+    [
+      {
+        latinGospel: 'Tunc venit Iesus cum illis in villam, quæ dícitur Gethsémani, et dixit discípulis suis: Sedéte hic donec vadam illuc, et orem. Et assúmpto Petro, et duóbus fíliis Zebedǽi, coépit contristári et moéstus esse. Tunc ait illis: Tristis est ánima mea usque ad mortem: sustinéte hic, et vigiláte mecum. Et progréssus pusíllum, prócidit in fáciem suam, orans, et dicens: Pater mi, si possíbile est, tránseat a me calix iste: verúmtamen non sicut ego volo, sed sicut tu.',
+        latinMed: 'Dómine, honorámus agoníam tuam mortálem. Rogámus tibi et Matri Sanctíssimæ, sincérum pæniténtiæ spíritum peccatórum nostrórum.',
+        portGospel: 'Jesus chegou com eles a uma propriedade chamada Getsêmani e disse aos discípulos: "Sentai-vos, enquanto eu vou orar ali!" Levou consigo Pedro e os dois filhos de Zebedu e começou a ficar triste e angustiado. Então lhes disse: "Sinto uma tristeza mortal! Ficai aqui e vigiai comigo!" Ele foi um pouco mais adiante, caiu com o rosto por terra e orou: "Meu pai, se possível, que este cálice passe de mim. Contudo, não seja feito como eu quero, mas como tu queres."',
+        portMed: 'Senhor, Vos honramos pela Vossa agonia mortal. Vos pedimos e à Mãe Santíssima, sincero arrependimento de nossos pecados.'
+      },
+      {
+        latinGospel: 'Tunc ergo apprehéndit Pilátus Iesum, et flagellávit. Et mílites plecténtes corónam de spinis, imposuérunt cápiti eius: et veste purpúrea circumdedérunt eum. Et veniébant ad eum, et dicébant: Ave rex Iudæórum: et dábant ei álapas.',
+        latinMed: 'Dómine, honorámus cruéntam flagellatiónem tuam. Rogámus tibi et Matri Sanctíssimæ, spíritum pæniténtiæ et sacrifícii, et mortificatiónem sénsuum.',
+        portGospel: 'Pilatos então, mandou açoitar Jesus. Os soldados trançaram uma coroa de espinhos, a puseram na cabeça de Jesus e o vestiram com um manto púrpura. Aproximaram-se dele e diziam: "Viva o rei dos Judeus"; e batiam nele.',
+        portMed: 'Senhor, Vos honramos pela Vossa sangrenta flagelação. Vos pedimos e à Mãe Santíssima, o espírito de penitência e sacrifício, e a mortificação dos sentidos.'
+      },
+      {
+        latinGospel: 'Tunc mílites prǽsidis suscipiéntes Iesum in prætórium, congregavérunt ad eum univérsam cohórtem, et exuéntes eum, chlámydem coccíneam circumdedérunt ei, et plecténtes corónam de spinis, posuérunt super caput eius, et arúndinem in déxtera eius. Et genu flexo ante eum, illudébant ei, dicéntes: Ave rex Iudæórum.',
+        latinMed: 'Dómine, honorámus humiliántem coronatiónem tuam. Rogámus tibi et Matri Sanctíssimæ, ut peccáto renuntiémus.',
+        portGospel: 'Em seguida, os soldados do governador levaram Jesus ao pretório e reuniram todo o batalhaõ em volta dele. Tiraram-lhe a roupa e o vestiram com um manto vermelho; depois trançaram uma coroa de espinhos, puseram-na em sua cabeça, e uma vara em sua mão direita. Então se ajoelharam diante de Jesus e zombavam, dizendo: "Salve, rei dos judeus!"',
+        portMed: 'Senhor, Vos honramos pela Vossa humilhante coroação. Vos pedimos e à Mãe Santíssima, que renunciemos ao pecado.'
+      },
+      {
+        latinGospel: 'Et angariavérunt prætereúntem quémpiam, Simónem Cyrenǽum veniéntem de vílla, pátrem Alexándri et Rufi, ut tólleret crucem eius. Et perdúcunt illum in Gólgotha locum: quod est interpretátum Calváriæ locus.',
+        latinMed: 'Dómine, honorámus dolorósam baiulatiónem Crucis tuæ. Rogámus tibi et Matri Sanctíssimæ patiéntiam ad crucem nostram portándam.',
+        portGospel: 'Os soldados obrigaram quem lá passava voltando do campo, Simão de Cirene, pai de Alexandre e de Rufo, a carregar a cruz. Levaram Jesus para o lugar chamado Gólgota (que quer dizer Calvário).',
+        portMed: 'Senhor, honramos o carregamento sofrido da cruz. Vos pedimos e à Mãe Santíssima paciência para carregar as nossas cruzes.'
+      },
+      {
+        latinGospel: 'Et postquam venérunt in locum qui vocátur Calváriæ, ibi crucifixérunt eum: et latrónes, unum a dextris, et álterum a sinístris. Iesus autem dicébat: Pater, dimítte illis: non enim sciunt quid fáciunt. Dividéntes vero vestiménta eius, misérunt sortes. Et stabat pópulus spectans, et deridébant eum príncipes cum eis, dicéntes: Álios salvos fecit, se salvum fáciat, si hic est Christus Dei eléctus. Erat autem fere hora sexta, et ténebræ factæ sunt in univérsam terram usque in horam nonam. Et obscurátus est sol et velum templi scissum est médium. Et clamans voce magna Iesus ait: Pater, in manus tuas comméndo spíritum meum. Et hæc dicens, exspirávit.',
+        latinMed: 'Dómine, honorámus mortem tuam in Calváriæ monte. Rogámus tibi et Matri Sanctíssimæ, conversiónem nostram et ómnium peccatórum.',
+        portGospel: 'Quando chegaram ao lugar chamado Calvário, ali crucificaram Jesus e os malfeitores: um à sua direita e outro à sua esquerda. Jesus dizia: "Pai, perdoa-lhes! Eles não sabem o que fazem!" Já era mais ou menos meio-dia, e uma escuridão cobriu toda a terra até às três da tarde, pois o sol parou de brilhar. O véu do Santuário rasgou-se pelo meio, e Jesus deu um forte grito: "Pai, em tuas mãos entrego meu espírito." Dizendo isto, expirou.',
+        portMed: 'Senhor, honramos a Vossa morte no Calvário. Vos pedimos e à Mãe Santíssima, a nossa conversão e de todos os pecadores.'
+      }
+    ],
+    [
+      {
+        latinGospel: 'Una autem sábbati valde dilúculo venérunt ad monuméntum, portántes quæ paráverant arómata: et invenérunt lápidem revolútum a monuménto. Et ingréssæ non invenérunt corpus Dómini Iesu. Et factum est, dum mente consternátæ essent de isto, ecce duo viri stetérunt secus illas in veste fulgénti. Cum timérent autem, et declinárent vultum in terram, dixérunt ad illas: Quid quǽritis vivéntem cum mórtuis? non est hic, sed surréxit: recordámini quáliter locútus est vóbis, cum adhúc in Galilǽa esset.',
+        latinMed: 'Dómine, honorámus gloriósam resurrectiónem tuam. Rogámus tibi et Matri Sanctíssimæ, ut te semper magis amémus et fervénter tibi serviámus.',
+        portGospel: 'No primeiro dia da semana, bem de madrugada, as mulheres foram ao túmulo, levando os perfumes que tinham preparado. Encontraram a pedra do túmulo removida, mas, ao entrarem, não encontraram o corpo do Senhor Jesus e ficaram sem saber o que estava acontecendo. Nisso, dois homens com vestes resplandescentes pararam perto delas. Tomadas de medo, elas olhavam para o chão. Eles, porém disseram-lhes: "Por que procurais entre os mortos aquele que está vivo? Não está aqui. Ressuscitou!"',
+        portMed: 'Senhor, honramos a Vossa ressurreição gloriosa. Vos pedimos e à Mãe Santíssima, que amemos sempre mais a Vós e Vos sirvamos com fervor.'
+      },
+      {
+        latinGospel: 'Et Dóminus quidem Iesus postquam locútus est eis, assúmptus est in cælum, et sedet a dextris Dei.',
+        latinMed: 'Dómine, honorámus triumphálem ascensiónem tuam. Rogámus tibi et Matri Sanctíssimæ, ardéns desidérium Paradísi obtinéndi.',
+        portGospel: 'Depois de falar com os discípulos, o Senhor Jesus foi elevado ao céu e sentou-se à direita de Deus.',
+        portMed: 'Senhor, honramos a Vossa triunfante ascensão. Vos pedimos e à Mãe Santíssima, um ardente desejo de alcançar o Paraíso.'
+      },
+      {
+        latinGospel: 'Et cum compleréntur dies Pentecóstes, erant omnes páriter in eódem loco: et factus est repénte de cælo sonus, tanquam adveniéntis spíritus veheméntis, et replévit totam domum ubi erant sedéntes. Et apparuérunt illis dispertítæ linguæ tanquam ignis, sedítque supra síngulos eórum: et repléti sunt omnes Spíritu Sáncto et cœpérunt loqui váriis linguis, prout Spíritus Sanctus dabat elóqui illis.',
+        latinMed: 'Dómine, honorámus descensiónem Spíritus Sancti super Maríam et apóstolos. Rogámus tibi et Matri Sanctíssimæ, descensiónem Spíritus Sancti in ánimas nostras.',
+        portGospel: 'Quando chegou o dia de Pentecostes, os discípulos estavam todos reunidos no mesmo lugar. De repente, veio do céu um ruído como de um vento forte, que encheu toda a casa em que se encontravam. Então apareceram línguas como de fogo que se repartiram e pousaram sobre cada um deles. Todos ficaram cheios do Espírito Santo e começaram a falar em outras línguas, conforme o Espírito lhes concedia expressar-se.',
+        portMed: 'Senhor, honramos a descida do Espírito Santo sobre Maria e os apóstolos. Vos pedimos e à Mãe Santíssima, a descida do Espírito Santo em nossas almas.'
+      },
+      {
+        latinGospel: 'Quia respéxit humilitátem ancíllæ suæ: Ecce enim ex hoc beátam me dicent omnes generatiónes. Quia fecit mihi magna qui potens est: Et sanctum nomen eius.',
+        latinMed: 'Dómine, honorámus gloriósam Assumptiónem Matris tuæ in cælum. Rogámus tibi, ut concédas nobis grátiam veri amóris et devotiónis erga Maríam.',
+        portGospel: 'Todas as gerações, de agora em diante, me chamarão feliz, porque o Poderoso fez para mim coisas grandiosas.',
+        portMed: 'Senhor, honramos a gloriosa Assunção de Vossa Mãe ao céu. Vos pedimos que concedei-nos a graça do verdadeiro amor e devoção a Maria.'
+      },
+      {
+        latinGospel: 'Et signum magnum appáruit in cælo: Múlier amícta sole et luna sub pédibus eius, et in cápite eius coróna stellárum duódecim.',
+        latinMed: 'Dómine, honorámus coronatiónem Maríæ. Rogámus tibi perseverántiam in grátia et corónam glóriæ ætérnæ.',
+        portGospel: 'Então apareceu no céu um grande sinal: uma mulher vestida com o sol, tendo a lua debaixo dos pés e, sobre a cabeça, uma coroa de doze estrelas.',
+        portMed: 'Senhor, honramos a coroação de Maria. Vos pedimos a perseverança na graça e a coroa da glória eterna.'
+      }
+    ]
+  ];
+
+  const prayers = {
+    signum: {
+      title: 'Sinal da Cruz + Oferecimento + Credo',
+      latin: `<div class="prayer-section">
+                <span class="section-title">Sinal da Cruz</span>
+                <div class="section-content"><p>In nómine Patris, et Fílii, et Spíritus Sancti. Amen.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Oferecimento</span>
+                <div class="section-content"><p>Divíne Iesu, hunc Rosárium, quem recitáturi sumus, meditándo mystéria Redemptiónis nostræ, tibi offérimus. Da nobis, intercedénte Vírgine María, Matre Dei et Matre nostra, virtútes ad hoc bene recitándum necessárias, et grátiam ad lucrándas indulgéntias huius sanctæ devotiónis. Offérimus speciáliter in reparatiónem peccatórum contra Cor Iesu sacratíssimum et Cor Maríæ Immaculátum, pro pace mundi, pro conversióne peccatórum, pro ánimibus Purgatórii, pro intentiónibus Sancti Patris, pro augménto et sanctificatióne Cléri, pro vicário nostro, pro sanctificatióne familiárum, pro missiónibus, pro ægrotis, pro agonizántibus, pro ómnibus qui oratiónes nostras petivérunt, pro patria nostra et pro ómnibus intentiónibus nostris particuláribus.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Credo</span>
+                <div class="section-content"><p>Credo in Deum Patrem omnipoténtem, Creatórem caeli et terrae. Et in Iesum Christum, Fílium eius únicum, Dóminum nostrum: qui concéptus est de Spíritu Sancto, natus ex María Vírgine, passus sub Póntio Piláto, crucifíxus, mórtuus, et sepúltus: descéndit ad ínferos; tértia die resurréxit a mórtuis; ascéndit ad caelos; sedet ad déxteram Dei Patris omnipoténtis: inde ventúrus est iudicáre vivos et mórtuos. Credo in Spíritum Sanctum, sanctam Ecclésiam cathólicam, sanctórum communiónem, remissiónem peccatórum, carnis resurrectiónem, vitam ætérnam. Amen.</p></div>
+              </div>`,
+      port: `<div class="prayer-section">
+                <span class="section-title">Sinal da Cruz</span>
+                <div class="section-content"><p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Oferecimento</span>
+                <div class="section-content"><p>Divino Jesus, nós Vos oferecemos este terço que vamos rezar, meditando nos mistérios da nossa Redenção. Concedei-nos, por intercessão da Virgem Maria, Mãe de Deus e nossa Mãe, as virtudes que nos são necessárias para bem rezá-lo e a graça de ganharmos as indulgências desta santa devoção. Oferecemos particularmente, em desagravo dos pecados cometidos contra o Santíssimo Coração de Jesus e Imaculado Coração de Maria, pela paz do mundo, pela conversão dos pecadores, pelas almas do Purgatório, pelas intenções do Santo Padre, pelo aumento e sanctificação do Clero, pelo nosso vigário, pela santificação das famílias, pelas missões, pelos doentes, pelos agonizantes, por todos aqueles que pediram nossas orações, pelo nosso país e por todas as nossas intenções particulares.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Credo</span>
+                <div class="section-content"><p>Creio em Deus Pai todo-poderoso, Criador do céu e da terra. E em Jesus Cristo, seu único Filho, nosso Senhor, que foi concebido pelo poder do Espírito Santo, nasceu da Virgem Maria, padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado, desceu à mansão dos mortos, ressuscitou ao terceiro dia, subiu aos céus, está sentado à direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos. Creio no Espírito Santo, na santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne e na vida eterna. Amém.</p></div>
+              </div>`
+    },
+    pater: {
+      title: 'Pai Nosso',
+      latin: `<div class="prayer-section"><div class="section-content"><p>Pater noster, qui es in caelis, sanctificétur nomen tuum. Advéniat regnum tuum. Fiat volúntas tua, sicut in caelo et in terra. Panem nostrum cotidiánum da nobis hódie, et dimítte nobis débita nostra sicut et nos dimíttimus debitóribus nostris. Et ne nos indúcas in tentatiónem, sed líbera nos a malo. Amen.</p></div></div>`,
+      port: `<div class="prayer-section"><div class="section-content"><p>Pai Nosso, que estais nos céus, santificado seja o vosso nome; venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tempo, mas livrai-nos do mal. Amém.</p></div></div>`
+    },
+    ave: {
+      title: 'Ave Maria',
+      latin: `<div class="prayer-section"><div class="section-content"><p>Ave Maria, grátia plena, Dóminus tecum. Benedícta tu in muliéribus, et benedíctus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatóribus, nunc, et in hora mortis nostrae. Amen.</p></div></div>`,
+      port: `<div class="prayer-section"><div class="section-content"><p>Ave Maria, cheia de graça, o Senhor é convosco, bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.</p></div></div>`
+    },
+    gloria: {
+      title: 'Glória',
+      latin: `<div class="prayer-section"><div class="section-content"><p>Glória Patri, et Fílio, et Spíritui Sancto. Sicut erat in princípio, et nunc, et semper, et in sæcula sæculórum. Amen.</p></div></div>`,
+      port: `<div class="prayer-section"><div class="section-content"><p>Glória ao Pai, e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p></div></div>`
+    },
+    mysterium: {
+      title: 'Mistério + Pai Nosso',
+      latin: (mysteryIdx, beadIdx) => {
+        const t = mysteryTexts[mysteryIdx][beadIdx];
+        return `<div class="prayer-section">
+                  <span class="section-title">Evangelho</span>
+                  <div class="section-content"><p>${t.latinGospel}</p></div>
+                </div>
+                <div class="prayer-section">
+                  <span class="section-title">Meditação</span>
+                  <div class="section-content"><p>${t.latinMed}</p></div>
+                </div>
+                <div class="prayer-section">
+                  <span class="section-title">Pai Nosso</span>
+                  <div class="section-content"><p>Pater noster, qui es in caelis, sanctificétur nomen tuum. Advéniat regnum tuum. Fiat volúntas tua, sicut in caelo et in terra. Panem nostrum cotidiánum da nobis hódie, et dimítte nobis débita nostra sicut et nos dimíttimus debitóribus nostris. Et ne nos indúcas in tentatiónem, sed líbera nos a malo. Amen.</p></div>
+                </div>`;
+      },
+      port: (mysteryIdx, beadIdx) => {
+        const t = mysteryTexts[mysteryIdx][beadIdx];
+        return `<div class="prayer-section">
+                  <span class="section-title">Evangelho</span>
+                  <div class="section-content"><p>${t.portGospel}</p></div>
+                </div>
+                <div class="prayer-section">
+                  <span class="section-title">Meditação</span>
+                  <div class="section-content"><p>${t.portMed}</p></div>
+                </div>
+                <div class="prayer-section">
+                  <span class="section-title">Pai Nosso</span>
+                  <div class="section-content"><p>Pai Nosso, que estais nos céus, santificado seja o vosso nome; venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.</p></div>
+                </div>`;
+      }
+    },
+    oremus: {
+      title: 'Glória + Ó meu Jesus + Maria concebida',
+      latin: `<div class="prayer-section">
+                <span class="section-title">Glória</span>
+                <div class="section-content"><p>Glória Patri, et Fílio, et Spíritui Sancto. Sicut erat in princípio, et nunc, et semper, et in sæcula sæculórum. Amen.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Ó meu Jesus</span>
+                <div class="section-content"><p>O mi Iesu, dimitte nobis débita nostra, libera nos ab igne inférni, cónduc in caelum omnes ánimas, praesértim illas quae maxime indigent misericórdia tua.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Maria concebida sem pecado</span>
+                <div class="section-content"><p>Maria concépta sine peccáto, ora pro nobis qui ad te confúgimus.</p></div>
+              </div>`,
+      port: `<div class="prayer-section">
+                <span class="section-title">Glória</span>
+                <div class="section-content"><p>Glória ao Pai, e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Ó meu Jesus</span>
+                <div class="section-content"><p>Ó meu Jesus, perdoai-nos e livrai-nos do fogo do inferno; levai as almas todas para o Céu, principalmente as que mais precisarem.</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Maria concebida sem pecado</span>
+                <div class="section-content"><p>Maria concebida sem pecado, rogai por nós que recorremos a Vós.</p></div>
+              </div>`
+    },
+    salve: {
+      title: 'Salve Rainha / Salve Regina',
+      latin: `<div class="prayer-section"><div class="section-content"><p>Salve, Regína, Mater misericórdiæ, víta, dulcédo, et spes nóstra, sálve. Ad te clamámus, éxsules fílii Hévæ, Ad te suspirámus, geméntes et fléntes, in hac lacrimárum válle. Éia, érgo, advocáta nóstra, íllos túos misericórdes óculos ad nos convérte. Et Iésum, benedíctum frúctum véntris túi, nóbis post hoc exílium osténde. O clémens, O pía, O dúlcis Vírgo María.</p></div></div>
+              <div class="rubric">V. Óra pro nóbis sáncta Déi Génetrix.</div>
+              <div class="prayer-section"><div class="section-content"><p class="response">R. Ut dígni efficiámur promissiónibus Chrísti. Ámen.</p></div></div>`,
+      port: `<div class="prayer-section">
+                <span class="section-title">Agradecimento</span>
+                <div class="section-content"><p>Infinitas graças vos damos, Soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo e para mais vos alegrar vos saudamos com uma Salve Rainha:</p></div>
+              </div>
+              <div class="prayer-section">
+                <span class="section-title">Salve Rainha</span>
+                <div class="section-content"><p>Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, Salve! A vós bradamos, os degredados filhos de Eva, a vós suspiramos, gemendo e chorando neste vale de lágrimas! Eia, pois, Advogada nossa, esses vossos olhos misericordiosos a nós volvei, e depois deste desterro mostrai-nos Jesus, bendito fruto do vosso ventre! Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p></div>
+              </div>
+              <div class="rubric">V. Rogai por nós, Santa Mãe de Deus.</div>
+              <div class="prayer-section"><div class="section-content"><p class="response">R. Para que sejamos dignos das promessas de Cristo. Amém.</p></div></div>`
+    },
+    oratio: {
+      title: 'Oratio / Oração Final',
+      latin: `<div class="prayer-section"><div class="section-content"><p>Orémus. Deus, cuius Unigénitus per vitam, mortem et resurrectiónem suam nobis salútis ætérnæ prǽmia comparávit, concéde, quǽsumus: ut hæc mystéria sacratíssimo beátæ Maríæ Vírginis Rosário recoléntes, et imitémur quod cóntinent, et quod promíttunt assequámur. Per eúndem Christum Dóminum nostrum. Amen.</p></div></div>`,
+      port: `<div class="prayer-section"><div class="section-content"><p>Oremos. Deus, cujo Filho Unigênito, por sua vida, morte e ressurreição, nos alcançou os prêmios da salvação eterna, concedei-nos, Vos suplicamos, que, meditando estes mistérios no santíssimo Rosário da Virgem Maria, imitemos o que eles contêm e alcancemos o que prometem. Pelo mesmo Cristo, Senhor nosso. Amém.</p></div></div>`
+    },
+    litaniae: {
+      title: 'Litanie Lauretane / Ladainha',
+      latin: `<div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Kýrie, eléison.<br><span class="response">R. Kýrie, eléison.</span></p>
+                  <p><span class="verse-label">V.</span> Christe, eléison.<br><span class="response">R. Christe, eléison.</span></p>
+                  <p><span class="verse-label">V.</span> Kýrie, eléison.<br><span class="response">R. Kýrie, eléison.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Pater de cælis, Deus, <span class="response">R. miserére nobis.</span></p>
+                  <p><span class="verse-label">V.</span> Fili, Redémptor mundi, Deus, <span class="response">R. miserére nobis.</span></p>
+                  <p><span class="verse-label">V.</span> Spíritus Sancte, Deus, <span class="response">R. miserére nobis.</span></p>
+                  <p><span class="verse-label">V.</span> Sancta Trínitas, unus Deus, <span class="response">R. miserére nobis.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Sancta Maria, <span class="response">R. ora pro nobis.</span></p>
+                  <p><span class="verse-label">V.</span> Sancta Dei Génitrix, <span class="response">R. ora pro nobis.</span></p>
+                  <p><span class="verse-label">V.</span> Sancta Virgo vírginum, <span class="response">R. ora pro nobis.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Mater Christi, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater Ecclésiæ, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater misericórdiæ, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater divínæ grátiæ, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater spei, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater puríssima, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater castíssima, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater invioláta, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater intemerata, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater amábilis, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater admirábilis, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater boni consílii, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater Creatóris, <span class="response">ora pro nobis.</span></p>
+                  <p>Mater Salvatóris, <span class="response">ora pro nobis.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Virgo prudentíssima, <span class="response">ora pro nobis.</span></p>
+                  <p>Virgo veneránda, <span class="response">ora pro nobis.</span></p>
+                  <p>Virgo prædicánda, <span class="response">ora pro nobis.</span></p>
+                  <p>Virgo potens, <span class="response">ora pro nobis.</span></p>
+                  <p>Virgo clemens, <span class="response">ora pro nobis.</span></p>
+                  <p>Virgo fidélis, <span class="response">ora pro nobis.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Spéculum iustítiæ, <span class="response">ora pro nobis.</span></p>
+                  <p>Sedes sapiéntiæ, <span class="response">ora pro nobis.</span></p>
+                  <p>Causa nostræ lætítiæ, <span class="response">ora pro nobis.</span></p>
+                  <p>Vas spirituále, <span class="response">ora pro nobis.</span></p>
+                  <p>Vas honorábile, <span class="response">ora pro nobis.</span></p>
+                  <p>Vas insígne devotiónis, <span class="response">ora pro nobis.</span></p>
+                  <p>Rosa mystica, <span class="response">ora pro nobis.</span></p>
+                  <p>Turris davídica, <span class="response">ora pro nobis.</span></p>
+                  <p>Turris ebúrnea, <span class="response">ora pro nobis.</span></p>
+                  <p>Domus áurea, <span class="response">ora pro nobis.</span></p>
+                  <p>Féderis arca, <span class="response">ora pro nobis.</span></p>
+                  <p>Iánua cæli, <span class="response">ora pro nobis.</span></p>
+                  <p>Stella matutina, <span class="response">ora pro nobis.</span></p>
+                  <p>Salus infirmórum, <span class="response">ora pro nobis.</span></p>
+                  <p>Refúgium peccatórum, <span class="response">ora pro nobis.</span></p>
+                  <p>Solácium Migrántium, <span class="response">ora pro nobis.</span></p>
+                  <p>Consolátrix afflictórum, <span class="response">ora pro nobis.</span></p>
+                  <p>Auxílium christianórum, <span class="response">ora pro nobis.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Regína angelórum, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína patriarchárum, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína prophetárum, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína apostolórum, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína mártyrum, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína confessórum, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína vírginum, <span class="response">ora pro nobis.</span></p>
+                  <p>Regínia sanctórum ómnium, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína sine labe origináli concepta, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína in cælum assumpta, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína sacratíssimi rosárii, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína famíliæ, <span class="response">ora pro nobis.</span></p>
+                  <p>Regína pacis, <span class="response">ora pro nobis.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Agnus Dei, qui tollis peccáta mundi, <span class="response">R. parce nobis, Dómine.</span></p>
+                  <p><span class="verse-label">V.</span> Agnus Dei, qui tollis peccáta mundi, <span class="response">R. exáudi nos, Dómine.</span></p>
+                  <p><span class="verse-label">V.</span> Agnus Dei, qui tollis peccáta mundi, <span class="response">R. miserére nobis.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Ora pro nobis, sancta Dei Génitrix, <span class="response">R. ut digni efficiámur promissiónibus Christi.</span></p>
+                </div>
+              </div>`,
+      port: `<div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Senhor, tende piedade de nós.<br><span class="response">R. Senhor, tende piedade de nós.</span></p>
+                  <p><span class="verse-label">V.</span> Cristo, tende piedade de nós.<br><span class="response">R. Cristo, tende piedade de nós.</span></p>
+                  <p><span class="verse-label">V.</span> Senhor, tende piedade de nós.<br><span class="response">R. Senhor, tende piedade de nós.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Santa Maria, <span class="response">R. rogai por nós.</span></p>
+                  <p><span class="verse-label">V.</span> Santa Mãe de Deus, <span class="response">R. rogai por nós.</span></p>
+                  <p><span class="verse-label">V.</span> Santa Virgem das Virgens, <span class="response">R. rogai por nós.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Mãe de Cristo, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe da Igreja, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe de misericórdia, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe da divina graça, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe da esperança, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe puríssima, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe castíssima, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe sempre virgem, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe imaculada, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe amável, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe admirável, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe do bom conselho, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe do Criador, <span class="response">rogai por nós.</span></p>
+                  <p>Mãe do Salvador, <span class="response">rogai por nós.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Virgem prudentíssima, <span class="response">rogai por nós.</span></p>
+                  <p>Virgem venerável, <span class="response">rogai por nós.</span></p>
+                  <p>Virgem louvável, <span class="response">rogai por nós.</span></p>
+                  <p>Virgem poderosa, <span class="response">rogai por nós.</span></p>
+                  <p>Virgem clemente, <span class="response">rogai por nós.</span></p>
+                  <p>Virgem fiel, <span class="response">rogai por nós.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Espelho de justiça, <span class="response">rogai por nós.</span></p>
+                  <p>Sede de sabedoria, <span class="response">rogai por nós.</span></p>
+                  <p>Causa da nossa alegria, <span class="response">rogai por nós.</span></p>
+                  <p>Vaso espiritual, <span class="response">rogai por nós.</span></p>
+                  <p>Vaso honorífico, <span class="response">rogai por nós.</span></p>
+                  <p>Vaso insigne de devoção, <span class="response">rogai por nós.</span></p>
+                  <p>Rosa mística, <span class="response">rogai por nós.</span></p>
+                  <p>Torre de Davi, <span class="response">rogai por nós.</span></p>
+                  <p>Torre de marfim, <span class="response">rogai por nós.</span></p>
+                  <p>Casa de ouro, <span class="response">rogai por nós.</span></p>
+                  <p>Arca da aliança, <span class="response">rogai por nós.</span></p>
+                  <p>Porta do céu, <span class="response">rogai por nós.</span></p>
+                  <p>Estrela da manhã, <span class="response">rogai por nós.</span></p>
+                  <p>Saúde dos enfermos, <span class="response">rogai por nós.</span></p>
+                  <p>Refúgio dos pecadores, <span class="response">rogai por nós.</span></p>
+                  <p>Conforto dos migrantes, <span class="response">rogai por nós.</span></p>
+                  <p>Consoladora dos aflitos, <span class="response">rogai por nós.</span></p>
+                  <p>Auxílio dos cristãos, <span class="response">rogai por nós.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p>Rainha dos anjos, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha dos patriarcas, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha dos profetas, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha dos apóstolos, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha dos mártires, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha dos confessores, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha das virgens, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha de todos os santos, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha concebida sem pecado original, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha assunta ao céu, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha do santo rosário, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha da família, <span class="response">rogai por nós.</span></p>
+                  <p>Rainha da paz, <span class="response">rogai por nós.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Cordeiro de Deus, que tirais o pecado do mundo, <span class="response">R. Perdoai-nos, Senhor.</span></p>
+                  <p><span class="verse-label">V.</span> Cordeiro de Deus, que tirais o pecado do mundo, <span class="response">R. Ouvi-nos, Senhor.</span></p>
+                  <p><span class="verse-label">V.</span> Cordeiro de Deus, que tirais o pecado do mundo, <span class="response">R. Tende piedade de nós.</span></p>
+                </div>
+              </div>
+              <div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Rogai por nós, Santa Mãe de Deus. <span class="response">R. Para que sejamos dignos das promessas de Cristo.</span></p>
+                </div>
+              </div>`
+    },
+    oratio2: {
+      title: 'Oratio / Oração (após a Ladainha)',
+      latin: `<div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Orémus.</p>
+                  <p>Concéde nos fámulos tuos, quǽsumus, Dómine Deus, perpétua mentis et corporis sanitáte gaudére, et, gloriósa beátæ Maríæ semper vírginis intercessióne, a præsénti liberári tristítia et ætérna pérfrui lætítia. Per Christum Dóminum nostrum.</p>
+                  <p class="response">R. Amen.</p>
+                </div>
+              </div>`,
+      port: `<div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Oremos.</p>
+                  <p>Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor.</p>
+                  <p class="response">R. Amém.</p>
+                </div>
+              </div>`
+    },
+    benedictio: {
+      title: 'Benedictio / Bênção Final',
+      latin: `<div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> Dóminus vobíscum.<br><span class="response">R. Et cum spíritu tuo.</span></p>
+                  <p><span class="verse-label">V.</span> Benedícat vos omnípotens Deus, Pater et Fílius et Spíritus Sanctus.<br><span class="response">R. Amen.</span></p>
+                </div>
+              </div>`,
+      port: `<div class="prayer-section">
+                <div class="section-content">
+                  <p><span class="verse-label">V.</span> O Senhor seja convosco.<br><span class="response">R. E com o vosso espírito.</span></p>
+                  <p><span class="verse-label">V.</span> Abençoe-vos o Deus onipotente, Pai, e Filho, e Espírito Santo.<br><span class="response">R. Amém.</span></p>
+                </div>
+              </div>`
+    }
+  };
+
+  let currentMystery = 0;
+  let currentBead = 0;
+  let currentSubStep = 0;
+  let phase = 'intro';
+  let introStep = 0;
+  let finalStep = 0;
+
+  const mysteryCards = document.querySelectorAll('.mystery-card');
+  const rosaryBeads = document.getElementById('rosaryBeads');
+  const mysteryName = document.getElementById('mysteryName');
+  const beadCounter = document.getElementById('beadCounter');
+  const beadInfo = document.getElementById('beadInfo');
+  const prevBtn = document.getElementById('prevBead');
+  const nextBtn = document.getElementById('nextBead');
+  const prayerTitle = document.getElementById('prayerTitle');
+  const prayerLatinEl = document.getElementById('prayerLatin');
+  const prayerPortugueseEl = document.getElementById('prayerPortuguese');
+  const indulgenceNotice = document.getElementById('indulgenceNotice');
+
+  function renderBeads() {
+    let html = '';
+
+    if (phase === 'intro') {
+      html += `<div class="intro-beads">`;
+      html += `<div class="bead cross ${introStep === 0 ? 'active' : introStep > 0 ? 'visited' : ''}" data-step="0" title="Sinal da Cruz + Oferecimento + Credo">✠</div>`;
+      html += `<div class="bead-separator"></div>`;
+      html += `<div class="bead ${introStep === 1 ? 'active' : introStep > 1 ? 'visited' : ''}" data-step="1" title="Pai Nosso">Pn</div>`;
+      html += `<div class="bead-separator"></div>`;
+      for (let i = 0; i < 3; i++) {
+        const aveStep = 2 + i;
+        const isActive = (introStep === aveStep);
+        const isVisited = (introStep > aveStep);
+        html += `<div class="bead ave-initial ${isActive ? 'active' : isVisited ? 'visited' : ''}" data-step="${aveStep}" title="Ave Maria ${i+1} de 3">A${i+1}</div>`;
+      }
+      html += `<div class="bead-separator"></div>`;
+      html += `<div class="bead ${introStep === 5 ? 'active' : introStep > 5 ? 'visited' : ''}" data-step="5" title="Glória">Gl</div>`;
+      html += `</div>`;
+
+      beadCounter.textContent = 'Introdução';
+      beadInfo.textContent = `Passo ${introStep + 1} de 6`;
+
+    } else if (phase === 'dezena') {
+      const mystery = mysteries[currentMystery];
+
+      html += `<div class="bead-row-top">`;
+      for (let i = 0; i < 10; i++) {
+        const isActive = (currentSubStep === i + 1);
+        const isVisited = (currentSubStep > i + 1);
+        html += `<div class="bead ${isActive ? 'active' : isVisited ? 'visited' : ''}" data-dezena="${currentBead}" data-ave="${i}" title="Ave Maria ${i+1} de 10">${i+1}</div>`;
+      }
+      html += `</div>`;
+
+      html += `<div class="bead-row-bottom">`;
+      for (let i = 0; i < 5; i++) {
+        const isActive = (i === currentBead && currentSubStep === 0);
+        const isVisited = (i < currentBead) || (i === currentBead && currentSubStep > 0);
+        html += `<div class="bead ${isActive ? 'active' : isVisited ? 'visited' : ''}" data-dezena="${i}" data-mystery="true" title="${mystery.beads[i]}">${i + 1}</div>`;
+        if (i < 4) html += `<div class="bead-separator"></div>`;
+      }
+      html += `</div>`;
+
+      const stepNames = ['Mistério', ...Array(10).fill('Ave Maria'), 'Glória + Ó meu Jesus + Maria concebida'];
+      beadCounter.textContent = `Dezena ${currentBead + 1} de 5`;
+      beadInfo.textContent = stepNames[currentSubStep];
+
+    } else {
+      html += `<div class="intro-beads">`;
+      const steps = ['Salve Rainha', 'Oração final', 'Ladainha', 'Oração', 'Bênção', 'Indulgência'];
+      const labels = ['Sr', 'Or', 'La', 'Or', 'Be', '✠'];
+      for (let i = 0; i < 6; i++) {
+        const isActive = (finalStep === i);
+        const isVisited = (finalStep > i);
+        html += `<div class="bead cross ${isActive ? 'active' : isVisited ? 'visited' : ''}" data-final="${i}" title="${steps[i]}">${labels[i]}</div>`;
+        if (i < 5) html += `<div class="bead-separator"></div>`;
+      }
+      html += `</div>`;
+
+      beadCounter.textContent = 'Final';
+      beadInfo.textContent = `Passo ${finalStep + 1} de 6`;
+    }
+
+    rosaryBeads.innerHTML = html;
+    mysteryName.textContent = mysteries[currentMystery].name;
+
+    if (phase === 'final' && finalStep === 5) {
+      indulgenceNotice.style.display = 'block';
+    } else {
+      indulgenceNotice.style.display = 'none';
+    }
+
+    updateButtons();
+    updatePrayer();
+  }
+
+  function updateButtons() {
+    if (phase === 'intro') {
+      prevBtn.disabled = (introStep === 0);
+      nextBtn.disabled = false;
+    } else if (phase === 'dezena') {
+      prevBtn.disabled = false;
+      nextBtn.disabled = false;
+    } else {
+      prevBtn.disabled = false;
+      nextBtn.disabled = (finalStep === 5);
+    }
+  }
+
+  function updatePrayer() {
+    const mystery = mysteries[currentMystery];
+
+    if (phase === 'intro') {
+      if (introStep === 0) {
+        prayerTitle.textContent = 'Sinal da Cruz + Oferecimento + Credo';
+        prayerLatinEl.innerHTML = prayers.signum.latin;
+        prayerPortugueseEl.innerHTML = prayers.signum.port;
+      } else if (introStep === 1) {
+        prayerTitle.textContent = 'Pai Nosso';
+        prayerLatinEl.innerHTML = prayers.pater.latin;
+        prayerPortugueseEl.innerHTML = prayers.pater.port;
+      } else if (introStep >= 2 && introStep <= 4) {
+        const aveNum = introStep - 1;
+        prayerTitle.textContent = `Ave Maria ${aveNum} de 3`;
+        prayerLatinEl.innerHTML = prayers.ave.latin;
+        prayerPortugueseEl.innerHTML = prayers.ave.port;
+      } else if (introStep === 5) {
+        prayerTitle.textContent = 'Glória';
+        prayerLatinEl.innerHTML = prayers.gloria.latin;
+        prayerPortugueseEl.innerHTML = prayers.gloria.port;
+      }
+    } else if (phase === 'dezena') {
+      if (currentSubStep === 0) {
+        prayerTitle.textContent = `${currentBead + 1}º Mistério - ${mystery.beads[currentBead]}`;
+        prayerLatinEl.innerHTML = prayers.mysterium.latin(currentMystery, currentBead);
+        prayerPortugueseEl.innerHTML = prayers.mysterium.port(currentMystery, currentBead);
+      } else if (currentSubStep <= 10) {
+        prayerTitle.textContent = `Ave Maria ${currentSubStep} de 10`;
+        prayerLatinEl.innerHTML = prayers.ave.latin;
+        prayerPortugueseEl.innerHTML = prayers.ave.port;
+      } else {
+        prayerTitle.textContent = 'Glória + Ó meu Jesus + Maria concebida';
+        prayerLatinEl.innerHTML = prayers.oremus.latin;
+        prayerPortugueseEl.innerHTML = prayers.oremus.port;
+      }
+    } else {
+      if (finalStep === 0) {
+        prayerTitle.textContent = prayers.salve.title;
+        prayerLatinEl.innerHTML = prayers.salve.latin;
+        prayerPortugueseEl.innerHTML = prayers.salve.port;
+      } else if (finalStep === 1) {
+        prayerTitle.textContent = prayers.oratio.title;
+        prayerLatinEl.innerHTML = prayers.oratio.latin;
+        prayerPortugueseEl.innerHTML = prayers.oratio.port;
+      } else if (finalStep === 2) {
+        prayerTitle.textContent = prayers.litaniae.title;
+        prayerLatinEl.innerHTML = prayers.litaniae.latin;
+        prayerPortugueseEl.innerHTML = prayers.litaniae.port;
+      } else if (finalStep === 3) {
+        prayerTitle.textContent = prayers.oratio2.title;
+        prayerLatinEl.innerHTML = prayers.oratio2.latin;
+        prayerPortugueseEl.innerHTML = prayers.oratio2.port;
+      } else if (finalStep === 4) {
+        prayerTitle.textContent = prayers.benedictio.title;
+        prayerLatinEl.innerHTML = prayers.benedictio.latin;
+        prayerPortugueseEl.innerHTML = prayers.benedictio.port;
+      } else {
+        prayerTitle.textContent = 'Indulgência';
+        prayerLatinEl.innerHTML = `<p><em>Aviso sobre indulgências</em></p>`;
+        prayerPortugueseEl.innerHTML = `<p><em>Aviso sobre indulgências</em></p>`;
+      }
+    }
+  }
+
+  function nextBead() {
+    if (phase === 'intro') {
+      if (introStep < 5) {
+        introStep++;
+        renderBeads();
+      } else {
+        phase = 'dezena';
+        currentBead = 0;
+        currentSubStep = 0;
+        renderBeads();
+      }
+    } else if (phase === 'dezena') {
+      if (currentSubStep < 11) {
+        currentSubStep++;
+        renderBeads();
+      } else {
+        if (currentBead < 4) {
+          currentBead++;
+          currentSubStep = 0;
+          renderBeads();
+        } else {
+          phase = 'final';
+          finalStep = 0;
+          renderBeads();
+        }
+      }
+    } else {
+      if (finalStep < 5) {
+        finalStep++;
+        renderBeads();
+      }
+    }
+  }
+
+  function prevBead() {
+    if (phase === 'intro') {
+      if (introStep > 0) {
+        introStep--;
+        renderBeads();
+      }
+    } else if (phase === 'dezena') {
+      if (currentSubStep > 0) {
+        currentSubStep--;
+        renderBeads();
+      } else {
+        if (currentBead > 0) {
+          currentBead--;
+          currentSubStep = 11;
+          renderBeads();
+        } else {
+          phase = 'intro';
+          introStep = 5;
+          renderBeads();
+        }
+      }
+    } else {
+      if (finalStep > 0) {
+        finalStep--;
+        renderBeads();
+      } else {
+        phase = 'dezena';
+        currentBead = 4;
+        currentSubStep = 11;
+        renderBeads();
+      }
+    }
+  }
+
+  function goToIntroStep(step) {
+    introStep = step;
+    phase = 'intro';
+    renderBeads();
+  }
+
+  function goToDezena(mysteryIdx, beadIdx, subStep) {
+    currentMystery = mysteryIdx;
+    currentBead = beadIdx;
+    currentSubStep = subStep;
+    phase = 'dezena';
+    updateMysteryCards();
+    renderBeads();
+  }
+
+  function goToFinal(step) {
+    finalStep = step;
+    phase = 'final';
+    renderBeads();
+  }
+
+  mysteryCards.forEach((card, index) => {
+    card.addEventListener('click', function() {
+      currentMystery = index;
+      currentBead = 0;
+      currentSubStep = 0;
+      phase = 'dezena';
+      updateMysteryCards();
+      renderBeads();
+    });
+  });
+
+  document.addEventListener('click', function(e) {
+    const bead = e.target.closest('.bead');
+    if (!bead) return;
+
+    const step = parseInt(bead.dataset.step);
+    const dezena = parseInt(bead.dataset.dezena);
+    const ave = parseInt(bead.dataset.ave);
+    const final = parseInt(bead.dataset.final);
+
+    if (phase === 'intro' && !isNaN(step)) {
+      goToIntroStep(step);
+    } else if (phase === 'dezena') {
+      if (!isNaN(dezena) && bead.dataset.mystery === 'true') {
+        goToDezena(currentMystery, dezena, 0);
+      } else if (!isNaN(dezena) && !isNaN(ave)) {
+        goToDezena(currentMystery, dezena, ave + 1);
+      }
+    } else if (phase === 'final' && !isNaN(final)) {
+      goToFinal(final);
+    }
+  });
+
+  prevBtn.addEventListener('click', prevBead);
+  nextBtn.addEventListener('click', nextBead);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      nextBead();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevBead();
+    }
+  });
+
+  function updateMysteryCards() {
+    mysteryCards.forEach((card, index) => {
+      card.classList.toggle('active', index === currentMystery);
+    });
+  }
+
+  renderBeads();
+</script>
+
+</body>
+</html>
