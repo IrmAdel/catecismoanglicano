@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <title>Catecismo Maior Anglo-Católico</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f2ede4;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1e1a16;
+      padding: 1.2rem;
+      line-height: 1.6;
+    }
+    .book {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #fffcf7;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+      padding: 2.5rem 2.2rem;
+      border-radius: 6px;
+    }
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    h1 { font-size: 2.2rem; text-align: center; margin-top: 0.2rem; margin-bottom: 1rem; border-bottom: 2px solid #b9a68c; padding-bottom: 0.6rem; }
+    h2 { font-size: 1.7rem; color: #3d2e1e; border-left: 5px solid #b9a68c; padding-left: 1rem; margin-top: 2rem; }
+    h3 { font-size: 1.3rem; color: #4d3a26; margin-top: 1.4rem; }
+    h4 { font-size: 1.1rem; font-style: italic; color: #5f4a34; margin-top: 1rem; }
+    p { margin-bottom: 0.5rem; text-align: justify; }
+    .qa { margin: 0.8rem 0 0.2rem 0; padding-left: 0.2rem; }
+    .q { font-weight: 700; color: #2f241b; }
+    .a { margin-left: 1.4rem; margin-bottom: 0.5rem; }
+    .chapter { margin-top: 2rem; padding-top: 0.5rem; border-top: 1px solid #d6cbbc; }
+    .section { margin-top: 1.2rem; padding-left: 0.8rem; border-left: 3px solid #e0d3c2; }
+    .prayer {
+      background: #f7f1e9;
+      padding: 1rem 1.8rem;
+      border-radius: 6px;
+      margin: 1.2rem 0;
+      border-left: 5px solid #b9a68c;
+    }
+    .prayer strong { color: #3d2e1e; }
+    .center { text-align: center; }
+    .rubric { color: #5f4a34; font-style: italic; font-size: 0.95rem; margin: 0.2rem 0 0.5rem 0; }
+    .footnote { font-size: 0.85rem; color: #4d3a26; background: #f4efe8; padding: 0.2rem 0.8rem; border-radius: 4px; margin-top: 0.6rem; }
+    ul, ol { margin-left: 1.8rem; margin-bottom: 0.8rem; }
+    li { margin-bottom: 0.2rem; }
+    .indent { padding-left: 1.8rem; }
+    hr { border: none; border-top: 1px solid #d6cbbc; margin: 2rem 0; }
+    .smallcaps { font-variant: small-caps; letter-spacing: 0.04em; }
+    .toc {
+      background: #f7f1e9;
+      padding: 1.2rem 2rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      columns: 2;
+      column-gap: 2rem;
+    }
+    .toc a { text-decoration: none; color: #3d2e1e; border-bottom: 1px dotted #b9a68c; }
+    .toc a:hover { color: #8b6f4f; border-bottom: 1px solid #8b6f4f; }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem; }
+      .book { padding: 1.2rem 0.8rem; }
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; }
+      .toc { columns: 1; }
+      .a { margin-left: 0.5rem; }
+    }
+/* Modo escuro (ativado via classe .dark-mode) */
+/* Modo escuro - versão equilibrada */
+.dark-mode {
+  background: #1e1a16;
+  color: #d4c9bb;
+}
+
+.dark-mode .book {
+  background: #28221c;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+}
+
+.dark-mode .prayer {
+  background: #332b23;
+  border-left-color: #a88d70;
+  color: #d4c9bb;
+}
+
+.dark-mode .toc {
+  background: #332b23;
+  color: #d4c9bb;
+}
+
+.dark-mode .toc a {
+  color: #d4c9bb;
+}
+
+.dark-mode .toc a:hover {
+  color: #e8c9a0;
+}
+
+.dark-mode .footnote {
+  background: #332b23;
+  color: #b8ad9e;
+}
+
+.dark-mode h1 {
+  border-bottom-color: #6b5d4e;
+  color: #e8dfd6;
+}
+
+.dark-mode h2 {
+  border-left-color: #a88d70;
+  color: #e0d3c2;
+}
+
+.dark-mode h3 {
+  color: #d4c9bb;
+}
+
+.dark-mode h4 {
+  color: #c4b7a6;
+}
+
+.dark-mode .qa .q {
+  color: #e8dfd6;
+}
+
+.dark-mode .qa .a {
+  color: #d4c9bb;
+}
+
+.dark-mode hr {
+  border-top-color: #4a3d32;
+}
+
+.dark-mode .chapter {
+  border-top-color: #4a3d32;
+}
+
+.dark-mode .section {
+  border-left-color: #5a4c3e;
+}
+
+.dark-mode p {
+  color: #d4c9bb;
+}
+
+.dark-mode .rubric {
+  color: #b8a48a;
+}
+
+.dark-mode .center {
+  color: #d4c9bb;
+}
+
+.dark-mode ul, 
+.dark-mode ol, 
+.dark-mode li {
+  color: #d4c9bb;
+}
+
+/* Botão do modo escuro fica mais visível */
+.dark-mode #toggleTheme {
+  background: #a88d70;
+  color: #1e1a16;
+}
+.dark-mode .prayer {
+  background: #3d3229;
+  border-left-color: #a88d70;
+  color: #d4c9bb;
+}
+/* ===== VERSÃO PARA CELULAR ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 0.3rem;
+  }
+
+  .book {
+    padding: 1rem 0.8rem;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    padding-bottom: 0.4rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+    border-left-width: 3px;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+  }
+
+  h4 {
+    font-size: 0.95rem;
+  }
+
+  p, .qa .a, .qa .q {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .qa {
+    margin: 0.5rem 0 0.1rem 0;
+  }
+
+  .a {
+    margin-left: 0.3rem;
+  }
+
+  .prayer {
+    padding: 0.8rem 1rem;
+    margin: 0.8rem 0;
+  }
+
+  .toc {
+    columns: 1;
+    padding: 0.8rem 1rem;
+    column-gap: 0;
+  }
+
+  .toc div {
+    margin-bottom: 0.3rem;
+  }
+
+  /* Índice com links mais fáceis de tocar */
+  .toc a {
+    display: block;
+    padding: 0.3rem 0;
+  }
+
+  .chapter {
+    margin-top: 1.2rem;
+    padding-top: 0.3rem;
+  }
+
+  .section {
+    padding-left: 0.3rem;
+    border-left-width: 2px;
+  }
+
+  ul, ol {
+    margin-left: 1.2rem;
+  }
+
+  .rubric {
+    font-size: 0.85rem;
+  }
+
+  .footnote {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* Botão de tema menor e mais discreto */
+  #toggleTheme {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* Ajuste para o botão de tema no topo */
+  .book > div:first-child {
+    margin-bottom: 0.3rem;
+  }
+
+  /* Espaçamento entre perguntas e respostas */
+  .qa .q {
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Ajuste de margem para o conteúdo do apêndice */
+  .chapter ul, 
+  .chapter ol {
+    padding-left: 0.2rem;
+  }
+
+  /* Salve Rainha e orações longas ficam mais compactas */
+  .prayer p {
+    margin-bottom: 0.3rem;
+  }
+
+  /* Ajuste para o Ordinário da Missa (texto em duas colunas) */
+  .book .prayer + .prayer {
+    margin-top: 0.5rem;
+  }
+
+  /* Pequeno ajuste para o rodapé */
+  .center[style*="font-size:0.9rem"] {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Para telas muito pequenas (celulares antigos, < 400px) */
+@media (max-width: 400px) {
+  .book {
+    padding: 0.6rem 0.4rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.0rem;
+  }
+
+  p, .qa .a, .qa .q {
+    font-size: 0.88rem;
+  }
+
+  .prayer {
+    padding: 0.6rem 0.6rem;
+  }
+}
+/* ===== ESTILOS PARA A INTRODUÇÃO ===== */
+.prayer-card {
+  background: #f7f1e9;
+  border-radius: 8px;
+  margin: 1.2rem 0;
+  overflow: hidden;
+  border: 1px solid #d6cbbc;
+}
+
+.prayer-title {
+  background: #b9a68c;
+  color: #1e1a16;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.6rem 1.2rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.prayer-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+}
+
+.prayer-latin {
+  border-right: 1px solid #d6cbbc;
+  padding-right: 1rem;
+}
+
+.prayer-latin p,
+.prayer-portuguese p {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.prayer-latin {
+  font-style: italic;
+  color: #3d2e1e;
+}
+
+.prayer-portuguese {
+  color: #1e1a16;
+}
+
+.prayer-content {
+  padding: 0.8rem 1.2rem;
+}
+
+.prayer-content p {
+  margin-bottom: 0.3rem;
+}
+
+.prayer-content .response {
+  color: #5f4a34;
+  font-style: italic;
+}
+
+.prayer-content .v {
+  color: #3d2e1e;
+  font-weight: 600;
+}
+
+.prayer-content .r {
+  color: #5f4a34;
+  font-weight: 600;
+}
+
+/* Modo escuro para a introdução */
+.dark-mode .prayer-card {
+  background: #2f2821;
+  border-color: #4a3d32;
+}
+
+.dark-mode .prayer-title {
+  background: #5a4c3e;
+  color: #e8dfd6;
+}
+
+.dark-mode .prayer-latin {
+  color: #c4b7a6;
+  border-right-color: #4a3d32;
+}
+
+.dark-mode .prayer-portuguese {
+  color: #d4c9bb;
+}
+
+.dark-mode .prayer-content p {
+  color: #d4c9bb;
+}
+
+.dark-mode .prayer-content .response {
+  color: #b8a48a;
+}
+
+.dark-mode .prayer-content .v {
+  color: #e0d3c2;
+}
+
+.dark-mode .prayer-content .r {
+  color: #b8a48a;
+}
+
+.dark-mode .prayer-latin[style*="font-style: italic"] {
+  color: #8a7a68;
+}
+.dark-mode .book img[alt="Papa São Pio X"] {
+  border-color: #a88d70;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+  .prayer-title {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .prayer-columns {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
+  
+  .prayer-latin {
+    border-right: none;
+    border-bottom: 1px solid #d6cbbc;
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+  }
+  
+  .dark-mode .prayer-latin {
+    border-bottom-color: #4a3d32;
+  }
+  
+  .prayer-content {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .prayer-latin p,
+  .prayer-portuguese p {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .prayer-title {
+    font-size: 0.85rem;
+  }
+  
+  .prayer-columns {
+    padding: 0.5rem;
+  }
+  
+  .prayer-latin p,
+  .prayer-portuguese p {
+    font-size: 0.82rem;
+  }
+}
+.search-hidden { display: none !important; }
+.search-highlight { background: #f0d6a8; padding: 0 2px; border-radius: 2px; }
+.dark-mode .search-highlight { background: #6b5d4e; color: #e8dfd6; }
+#noResults { text-align: center; padding: 2rem; font-style: italic; color: #5f4a34; display: none; }
+.dark-mode #noResults { color: #b8a48a; }
+.dark-mode #searchInput { background: #332b23; border-color: #a88d70; color: #d4c9bb; }
+.dark-mode #searchInput::placeholder { color: #8a7a68; }
+.dark-mode #searchInput:focus { border-color: #e8c9a0; }
+
+/* Botão Voltar ao Topo */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #b9a68c;
+  color: #1e1a16;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1;
+  padding: 0;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#backToTop:hover {
+  background: #a88d70;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+#backToTop:active {
+  transform: scale(0.92);
+}
+
+/* Modo escuro */
+.dark-mode #backToTop {
+  background: #5a4c3e;
+  color: #e8dfd6;
+  border-color: #a88d70;
+}
+
+.dark-mode #backToTop:hover {
+  background: #6b5d4e;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+  #backToTop {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #backToTop {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+/* Estilos para links do Apêndice */
+#apendice a {
+  transition: color 0.2s ease;
+}
+
+#apendice a:hover {
+  color: #8b6f4f;
+  text-decoration: underline !important;
+}
+
+/* Modo escuro - links do Apêndice */
+.dark-mode #apendice a:hover {
+  color: #e8c9a0;
+}
+
+/* Corrigir a cor do placeholder da busca no modo escuro */
+.dark-mode #searchInput::placeholder {
+  color: #8a7a68;
+}
+
+/* Botão de tema no topo - modo escuro */
+.dark-mode #toggleTheme {
+  background: #a88d70;
+  color: #1e1a16;
+}
+/* ===== ESTILOS PARA A BREVE HISTÓRIA DA RELIGIÃO ===== */
+/* Estilo similar ao das perguntas e respostas do Catecismo */
+
+#historia p {
+  margin-bottom: 0.5rem;
+  text-align: justify;
+  padding-left: 1.4rem;
+  text-indent: -1.4rem;
+}
+
+#historia p strong {
+  font-weight: 700;
+  color: #2f241b;
+}
+
+#historia h3 {
+  font-size: 1.3rem;
+  color: #4d3a26;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+  border-left: 5px solid #b9a68c;
+  padding-left: 1rem;
+}
+
+#historia h4 {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #5f4a34;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+#historia .footnote {
+  font-size: 0.85rem;
+  color: #4d3a26;
+  background: #f4efe8;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-top: 0.6rem;
+  border-left: 3px solid #b9a68c;
+  padding-left: 1.8rem;
+  text-indent: -1.2rem;
+}
+
+/* ===== ESTILO PARA OS NÚMEROS (1, 2, 3...) COMO PERGUNTAS ===== */
+#historia .num {
+  font-weight: 700;
+  color: #2f241b;
+}
+
+/* Modo escuro para a História */
+.dark-mode #historia h3 {
+  color: #d4c9bb;
+  border-left-color: #a88d70;
+}
+
+.dark-mode #historia h4 {
+  color: #c4b7a6;
+}
+
+.dark-mode #historia .footnote {
+  background: #332b23;
+  color: #b8ad9e;
+  border-left-color: #a88d70;
+}
+
+.dark-mode #historia p {
+  color: #d4c9bb;
+}
+
+.dark-mode #historia p strong {
+  color: #e8dfd6;
+}
+
+.dark-mode #historia .num {
+  color: #e8dfd6;
+}
+  </style>
+</head>
+<body>
+<div class="book" id="book">
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; gap: 0.5rem;">
+  <div>
+    <button id="toggleTheme" style="
+      background: #b9a68c;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1e1a16;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+    ">🌙</button>
+  </div>
+  <div style="flex: 1; min-width: 200px; max-width: 400px;">
+    <input type="text" id="searchInput" placeholder="Buscar no Catecismo..." style="
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      border: 2px solid #b9a68c;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fcf9f5;
+      color: #1e1a16;
+      outline: none;
+      transition: 0.2s;
+    ">
+  </div>
+</div>
+
+<h1>Catecismo Maior<br>Anglo-Católico</h1>
+<p class="center" style="font-size:1.1rem;">Segundo o método de São Pio X, para a Igreja Católica em sua vocação anglicana</p>
+<p class="center" style="font-size:0.9rem;">Rascunho de trabalho · ✠ Ad majorem Dei gloriam</p>
+<hr>
+<div class="toc">
+  <div><a href="#licao">Lição Preliminar · Da Doutrina Cristã</a></div>
+  <div><a href="#credo">Primeira Parte · Do Símbolo (Credo)</a></div>
+  <div><a href="#sacramentos">Segunda Parte · Dos Sacramentos</a></div>
+  <div><a href="#mandamentos">Terceira Parte · Dos Mandamentos</a></div>
+  <div><a href="#oracao">Quarta Parte · Da Oração e da piedade</a></div>
+  <div><a href="#completar">A completar</a></div>
+</div>
+<section id="licao"><h2>Lição Preliminar · Da Doutrina Cristã</h2>
+<div class="chapter"><h3>Da fé e da Igreja</h3>
+<div class="qa"><span class="q">1) Quem é o cristão?</span>
+<div class="a">O cristão é o homem ou a mulher que, pelo Batismo, foi incorporado a Jesus Cristo, professa a fé que ele ensinou e vive na Igreja que ele fundou.</div></div>
+<div class="qa"><span class="q">2) Em que Igreja vive o cristão anglo-católico?</span>
+<div class="a">Vive na Igreja una, santa, católica e apostólica, da qual a Comunhão Anglicana é um ramo, conservando a fé dos Apóstolos, os Credos, os Sacramentos, o Episcopado histórico e a liturgia da Igreja indivisa.</div></div>
+<div class="qa"><span class="q">3) De onde recebemos a doutrina cristã?</span>
+<div class="a">Recebemos a doutrina cristã da Sagrada Escritura e da Sagrada Tradição, interpretadas pela Igreja à luz dos Padres e dos sete primeiros Concílios Ecumênicos, com o auxílio da razão iluminada pela fé.</div></div>
+<div class="footnote">Cf. Tractos para os Tempos nº 38 e 41 (Via Media) e nº 90 (Observações sobre os Trinta e Nove Artigos), em anglicanhistory.org/tracts.</div>
+<div class="qa"><span class="q">4) O que é a Via Media?</span>
+<div class="a">É o caminho régio da Igreja anglicana, que não se afasta da plenitude católica nem renega o que a Reforma recuperou: o Evangelho pregado em língua do povo, a Escritura aberta aos fiéis e a oração comum.</div></div>
+</div>
+</section>
+<section id="credo"><h2>Primeira Parte · Do Símbolo (Credo)</h2>
+<div class="chapter"><h3>Do Credo em geral</h3>
+<div class="qa"><span class="q">5) Que Credos professa a Igreja?</span>
+<div class="a">A Igreja professa o Símbolo dos Apóstolos, o Símbolo Niceno-Constantinopolitano e o Símbolo Atanasiano, que condensam a fé recebida dos Apóstolos.</div></div>
+<div class="qa"><span class="q">6) Que é Deus?</span>
+<div class="a">Deus é o Ser perfeitíssimo, Criador e Senhor do céu e da terra, uno em natureza e trino em Pessoas: Pai, Filho e Espírito Santo.</div></div>
+<div class="qa"><span class="q">7) Deus tem sexo?</span>
+<div class="a">Não. Deus é puro Espírito. A Escritura chama-o Pai, mas também o compara à mãe que consola e à galinha que reúne os seus pintinhos; tais imagens revelam o seu amor, sem lhe atribuir corpo nem sexo.</div></div>
+<div class="qa"><span class="q">8) Foi o homem criado à imagem de Deus?</span>
+<div class="a">Sim. Homem e mulher foram criados à imagem de Deus, com igual dignidade, alma imortal, inteligência e vontade livre.</div></div>
+<div class="qa"><span class="q">9) Por que Jesus Cristo se fez homem?</span>
+<div class="a">Para nos salvar do pecado e da morte. O Verbo eterno assumiu a natureza humana inteira, sem deixar nada de fora, para que nada do que é humano ficasse sem redenção.</div></div>
+<div class="qa"><span class="q">10) Foi Cristo homem por ser varão, ou por ter assumido a humanidade?</span>
+<div class="a">Cristo salva-nos por ter assumido a humanidade comum a todos, e não por pertencer a um sexo. O Credo diz que se fez homem (em grego, anthropos), isto é, ser humano, e não varão (aner).</div></div>
+</div>
+<div class="chapter"><h3>Da Igreja</h3>
+<div class="qa"><span class="q">11) Quais são as notas da verdadeira Igreja?</span>
+<div class="a">A Igreja é una, santa, católica e apostólica.</div></div>
+<div class="qa"><span class="q">12) Em que sentido é a Igreja una?</span>
+<div class="a">É una pela mesma fé, pelos mesmos Sacramentos e pelo mesmo Cristo. A divisão dos cristãos é ferida e escândalo; devemos rezar e trabalhar pela sua cura.</div></div>
+<div class="qa"><span class="q">13) Quem governa a Igreja visível?</span>
+<div class="a">Os Bispos, sucessores dos Apóstolos, em comunhão uns com os outros, junto com o clero e os fiéis leigos nos sínodos da Igreja.</div></div>
+<div class="footnote">Cf. Tractos nº 1, 4, 7 e 33 (sucessão apostólica e episcopado primitivo).</div>
+<div class="qa"><span class="q">14) Que pensa o anglo-católico do Bispo de Roma?</span>
+<div class="a">Reconhece-lhe um primado de honra e de caridade como Patriarca do Ocidente, mas não admite que tenha jurisdição imediata e universal sobre toda a Igreja, nem que seja infalível por si só, como o definiu o Concílio Vaticano I.</div></div>
+<div class="qa"><span class="q">15) Está a Igreja Católica limitada à comunhão romana?</span>
+<div class="a">Não. Pertencem à Igreja Católica os batizados que professam a fé apostólica e guardam a sucessão e os Sacramentos: as Igrejas Ortodoxas, as Antigas Igrejas Orientais, a Igreja de Roma e a Comunhão Anglicana, cada uma com suas feridas.</div></div>
+<div class="qa"><span class="q">16) Que é a Comunhão dos Santos?</span>
+<div class="a">É a união de todos os fiéis, vivos e defuntos, no único Corpo de Cristo. Os santos do céu rezam por nós, e nós rezamos pelos que partiram.</div></div>
+<div class="qa"><span class="q">17) É lícito rezar pelos defuntos?</span>
+<div class="a">É não somente lícito, mas piedoso e antigo costume da Igreja. Oferecemos por eles preces e o Santo Sacrifício, confiando-os à misericórdia de Deus, sem pretender determinar em pormenor o estado das almas.</div></div>
+<div class="footnote">Cf. Tractos nº 72 (Ussher sobre a oração pelos defuntos) e nº 79 (sobre o Purgatório).</div>
+<div class="qa"><span class="q">18) Quem é a Santíssima Virgem Maria?</span>
+<div class="a">É a Mãe de Deus (Theotokos), sempre Virgem, bendita entre todas as mulheres e primeira discípula de seu Filho. Venera-se com a Ave-Maria, o Angelus, o Rosário e as festas marianas.</div></div>
+<div class="qa"><span class="q">19) Que lugar tiveram as mulheres no Evangelho?</span>
+<div class="a">Um lugar de primeiro plano. Maria Madalena foi a primeira testemunha da Ressurreição e enviada a anunciá-la aos Apóstolos, razão pela qual a Tradição a chama apóstola dos Apóstolos.</div></div>
+</div>
+</section>
+<section id="sacramentos"><h2>Segunda Parte · Dos Sacramentos</h2>
+<div class="chapter"><h3>Dos Sacramentos em geral</h3>
+<div class="qa"><span class="q">20) Que é um Sacramento?</span>
+<div class="a">Um sinal sensível e eficaz da graça, instituído por Cristo e confiado à sua Igreja, que opera o que significa.</div></div>
+<div class="qa"><span class="q">21) Quantos são os Sacramentos?</span>
+<div class="a">Sete: Batismo, Confirmação, Eucaristia, Penitência, Unção dos Enfermos, Ordem e Matrimônio. O Batismo e a Eucaristia são os dois Sacramentos maiores do Evangelho; os outros cinco são, igualmente, meios de graça.</div></div>
+<div class="footnote">Cf. Tractos nº 32 (As Ordenanças Permanentes da Religião) e nº 34.</div>
+</div>
+<div class="chapter"><h3>Do Batismo e da Confirmação</h3>
+<div class="qa"><span class="q">22) Que é o Batismo?</span>
+<div class="a">É o Sacramento do renascimento espiritual, pelo qual somos lavados do pecado, tornados filhos de Deus e membros da Igreja.</div></div>
+<div class="footnote">Cf. Tractos nº 40 e 76 (sobre o Batismo e a regeneração batismal).</div>
+<div class="qa"><span class="q">23) Quem pode receber o Batismo?</span>
+<div class="a">Todo ser humano ainda não batizado, sem distinção de sexo, raça, condição social ou inclinação afetiva.</div></div>
+<div class="qa"><span class="q">24) Que é a Confirmação?</span>
+<div class="a">É o Sacramento pelo qual o Bispo, impondo as mãos e ungindo com o santo Crisma, confirma o batizado nos dons do Espírito Santo.</div></div>
+</div>
+<div class="chapter"><h3>Da Santíssima Eucaristia e da Missa</h3>
+<div class="qa"><span class="q">25) Que é a Santíssima Eucaristia?</span>
+<div class="a">É o Sacramento do Corpo e Sangue de Cristo, verdadeira, real e espiritualmente presente sob as espécies do pão e do vinho.</div></div>
+<div class="qa"><span class="q">26) Como está Cristo presente na Eucaristia?</span>
+<div class="a">Está presente verdadeira e realmente, de modo sacramental e inefável. A Igreja Anglicana não impõe uma teoria filosófica única (transubstanciação ou outra) para explicar o modo, mas confessa a Presença.</div></div>
+<div class="footnote">Cf. Tractos nº 27 e 28 (Bispo Cosin sobre a doutrina da Eucaristia).</div>
+<div class="qa"><span class="q">27) É a Missa um sacrifício?</span>
+<div class="a">Sim. A Missa é o memorial eficaz do único sacrifício da Cruz, oferecido uma vez por todas, que se faz presente e é oferecido a Deus pela Igreja, em união com Cristo, nosso Sumo Sacerdote.</div></div>
+<div class="footnote">Cf. Tracto nº 81 (Catena Patrum sobre o Sacrifício Eucarístico).</div>
+<div class="qa"><span class="q">28) Com que disposições se deve comungar?</span>
+<div class="a">Em estado de graça, em jejum eucarístico ao menos de uma hora, com fé, humildade e desejo de amar a Deus e ao próximo.</div></div>
+<div class="qa"><span class="q">29) Pode-se adorar o Santíssimo Sacramento?</span>
+<div class="a">Sim. Reservado nos tabernáculos, para a comunhão dos enfermos, é lícito adorá-lo, com a Bênção e a Exposição, segundo o uso das paróquias anglo-católicas.</div></div>
+</div>
+<div class="chapter"><h3>Da Penitência</h3>
+<div class="qa"><span class="q">30) Que é a Penitência?</span>
+<div class="a">É o Sacramento pelo qual os pecados cometidos depois do Batismo são perdoados pelo ministro de Cristo, mediante a contrição, a confissão e a satisfação.</div></div>
+<div class="qa"><span class="q">31) É obrigatória a confissão auricular?</span>
+<div class="a">Segundo a máxima anglicana tradicional, todos podem, alguns devem, ninguém é obrigado. A confissão é fortemente recomendada, e o sigilo sacramental é inviolável.</div></div>
+<div class="footnote">Cf. Tracto nº 39 (Forma do Bispo Wilson para receber penitentes).</div>
+<div class="qa"><span class="q">32) Quem pode absolver os pecados?</span>
+<div class="a">O Bispo e o Presbítero validamente ordenados, em nome de Cristo, sem distinção do sexo do ministro.</div></div>
+</div>
+<div class="chapter"><h3>Da Unção dos Enfermos</h3>
+<div class="qa"><span class="q">33) Que é a Unção dos Enfermos?</span>
+<div class="a">É o Sacramento em que o presbítero unge o enfermo com óleo bento e reza por ele, para que Deus lhe dê alívio da alma e, se for conveniente, do corpo.</div></div>
+</div>
+<div class="chapter"><h3>Da Ordem</h3>
+<div class="qa"><span class="q">34) Que é o Sacramento da Ordem?</span>
+<div class="a">É o Sacramento pelo qual Cristo, por meio do Bispo, confere o ministério sagrado do diaconado, do presbiterado e do episcopado, imprimindo caráter indelével.</div></div>
+<div class="footnote">Cf. Tracto nº 12 (Bispos, Presbíteros e Diáconos) e nº 14 (As Têmporas).</div>
+<div class="qa"><span class="q">35) Quem é o ministro deste Sacramento?</span>
+<div class="a">Somente o Bispo, na sucessão apostólica, com a imposição das mãos e a oração de ordenação.</div></div>
+<div class="qa"><span class="q">36) A Ordem pode ser conferida a mulheres?</span>
+<div class="a">Sim. Esta Igreja ensina que a vocação ao diaconado, ao presbiterado e ao episcopado vem de Deus e se dirige a todo batizado a quem a Igreja reconhece o chamado, mulher ou homem.</div></div>
+<div class="footnote">Doutrina própria desta edição. Foi recebida pela Igreja da Inglaterra (presbíteras desde 1994; bispas desde 2015) e pela Igreja Episcopal (desde 1976). Outras Igrejas católicas dela discordam, e a questão é considerada em processo de recepção.</div>
+<div class="qa"><span class="q">37) Que razões se dão em favor desta doutrina?</span>
+<div class="a">Primeiro, que o sacerdote age in persona Christi pela humanidade de Cristo, e não pelo seu sexo; segundo, que o batismo dá a todos a mesma dignidade em Cristo (Gl 3, 28); terceiro, que a Escritura nomeia mulheres em funções de ministério, como Febe, diaconisa de Cencreia (Rm 16, 1), e Júnia, notável entre os Apóstolos (Rm 16, 7); quarto, que as mulheres foram as primeiras testemunhas da Ressurreição.</div></div>
+<div class="qa"><span class="q">38) Por que Cristo escolheu doze Apóstolos varões?</span>
+<div class="a">Responde-se que os Doze representam as doze tribos de Israel e foram escolhidos segundo o costume e a cultura do seu tempo, o que não implica proibição perpétua. Muitos viram na escolha uma condescendência pedagógica, não uma norma para todos os séculos.</div></div>
+<div class="qa"><span class="q">39) Que objeção se faz a esta doutrina?</span>
+<div class="a">Faz-se a objeção de que a Igreja nunca ordenou mulheres ao presbiterado até o século XX, e de que a mudança deve ser tomada em comunhão com as Igrejas do Oriente e do Ocidente. Reconhece-se o peso da objeção e a dor das divisões que gerou, e por isso se tratam com caridade os irmãos que, de boa consciência, dela discordam.</div></div>
+<div class="qa"><span class="q">40) Como deve agir quem discorda?</span>
+<div class="a">Deve guardar a caridade, não romper a comunhão e rezar pela unidade. A Igreja permite aos fiéis recorrer a ministros cuja ordenação lhes dê segurança de consciência.</div></div>
+<div class="qa"><span class="q">41) Qual é a dignidade do sacerdócio?</span>
+<div class="a">Dá ao ministro o duplo poder sobre o Corpo real e sobre o Corpo místico de Cristo, e a missão de conduzir os homens à vida eterna. É por isso que os fiéis devem honrar os sacerdotes, e eles servir com humildade.</div></div>
+<div class="qa"><span class="q">42) É obrigatório o celibato do clero?</span>
+<div class="a">Não. O celibato é conselho evangélico e dom, estimado e livremente escolhido por muitos; mas o clero pode casar-se, seja homem ou mulher, tal como na tradição do Oriente e da Igreja primitiva.</div></div>
+</div>
+<div class="chapter"><h3>Do Matrimônio</h3>
+<div class="qa"><span class="q">43) Que é o Sacramento do Matrimônio?</span>
+<div class="a">É a aliança santa e permanente pela qual duas pessoas, diante de Deus e da Igreja, se prometem mútua fidelidade, e recebem a graça de se amarem santamente e de educarem cristãmente os filhos que Deus lhes der.</div></div>
+<div class="qa"><span class="q">44) Que significa o Matrimônio?</span>
+<div class="a">Significa a união de Cristo com a Igreja, sua esposa (Ef 5, 32). Ensina-se que esse mistério se manifesta em todo amor fiel, sacrificial e fecundo.</div></div>
+<div class="qa"><span class="q">45) Pode haver Matrimônio entre duas pessoas do mesmo sexo?</span>
+<div class="a">Esta Igreja ensina que sim, quando duas pessoas do mesmo sexo se prometem, perante Deus, fidelidade perpétua, exclusiva e fecunda em obras de amor; a Igreja reconhece então nelas a graça do Sacramento ou, onde ainda não é possível, abençoa-lhes a união.</div></div>
+<div class="footnote">Doutrina própria desta edição. A questão divide a Comunhão Anglicana e o mundo católico; a Igreja da Inglaterra permite bênçãos, e algumas Províncias celebram casamentos. Aqui se expõe a posição inclusiva, sem esconder que outras Igrejas católicas sustentam a definição tradicional.</div>
+<div class="qa"><span class="q">46) Em que a união de duas pessoas do mesmo sexo se submete à mesma disciplina cristã?</span>
+<div class="a">Em tudo: exige-se fidelidade, exclusividade, intenção de permanência, castidade antes do casamento, abertura à vida, no sentido de generosidade e hospitalidade, e o dever de educar cristãmente quem lhes for confiado.</div></div>
+<div class="qa"><span class="q">47) É pecado ter inclinação homossexual?</span>
+<div class="a">Não. A inclinação afetiva ou a identidade da pessoa não é pecado, assim como não é pecado ser canhoto. Pecado é o uso desordenado da liberdade, em qualquer pessoa: a luxúria, a infidelidade e o egoísmo.</div></div>
+<div class="qa"><span class="q">48) Como deve a Igreja tratar os fiéis LGBT?</span>
+<div class="a">Com a mesma caridade, justiça e respeito devidos a qualquer filho de Deus. Fica condenada toda violência, desprezo ou injúria. Podem receber todos os Sacramentos e exercer qualquer ministério na Igreja, inclusive o sagrado, segundo as normas comuns.</div></div>
+<div class="qa"><span class="q">49) Que dizer das pessoas transgêneras?</span>
+<div class="a">A Igreja recebe-as como filhas de Deus pelo Batismo, acolhe-as com respeito e as acompanha com pastoral prudente, sem negar a gravidade das dores e dúvidas que muitas enfrentam. É assunto em que a Igreja ainda estuda e discerne.</div></div>
+<div class="qa"><span class="q">50) Pode o matrimônio ser dissolvido?</span>
+<div class="a">A Igreja ensina a intenção de permanência, e que o divórcio é sempre uma ferida e uma tragédia. Admite, porém, em casos graves, a dissolução civil e uma segunda união, com penitência e bênção, por misericórdia pastoral.</div></div>
+</div>
+</section>
+<section id="mandamentos"><h2>Terceira Parte · Dos Mandamentos</h2>
+<div class="chapter"><h3>Do sexto e nono Mandamentos</h3>
+<div class="qa"><span class="q">51) Que proíbe o sexto Mandamento?</span>
+<div class="a">Proíbe toda ação impura contra a fidelidade, a pureza e a dignidade do próximo: o adultério, a fornicação, a pornografia, o abuso, a exploração do corpo alheio e a luxúria.</div></div>
+<div class="qa"><span class="q">52) Que ordena o nono Mandamento?</span>
+<div class="a">Ordena a pureza do coração, isto é, olhar o próximo como pessoa, jamais como objeto.</div></div>
+<div class="qa"><span class="q">53) Esta lei vale do mesmo modo para todos?</span>
+<div class="a">Sim, sem exceção de pessoas. Valem para o casado e o celibatário, o heterossexual e o homossexual: castidade no celibato, fidelidade no casamento.</div></div>
+<div class="qa"><span class="q">54) Como se vence a impureza?</span>
+<div class="a">Com a oração, a confissão frequente, a comunhão, a devoção à Virgem Santíssima, a fuga das ocasiões e a mortificação.</div></div>
+</div>
+<div class="chapter"><h3>Da caridade</h3>
+<div class="qa"><span class="q">55) Que é a caridade para com o próximo?</span>
+<div class="a">É amar o próximo como a nós mesmos, por amor de Deus, e fazer-lhe o bem, a começar pelos pobres, os doentes, os perseguidos e os marginalizados.</div></div>
+<div class="qa"><span class="q">56) Fazem mal os que rejeitam e humilham os filhos de Deus por sua condição?</span>
+<div class="a">Pecam gravemente contra a caridade e contra a justiça, pois ofendem a imagem de Deus.</div></div>
+</div>
+</section>
+<section id="oracao"><h2>Quarta Parte · Da Oração e da piedade</h2>
+<div class="chapter"><h3>Do culto e da disciplina</h3>
+<div class="qa"><span class="q">57) Que é o Ofício Divino?</span>
+<div class="a">É a oração pública da Igreja: Matinas e Vésperas, segundo o Livro de Oração Comum, e as Horas canônicas, onde o costume as conserva.</div></div>
+<div class="footnote">Cf. Tractos nº 75 (sobre o Breviário), nº 84 e nº 88 (Devoções de Lancelot Andrewes).</div>
+<div class="qa"><span class="q">58) Que é a Missa anglo-católica?</span>
+<div class="a">É a celebração da Santa Eucaristia, segundo o Missal Inglês, o Missal Anglicano ou o Livro de Oração Comum, com cerimonial tradicional, incenso, velas e paramentos, e com o altar voltado para o Oriente.</div></div>
+<div class="qa"><span class="q">59) Por que se jejua e se guardam as Têmporas?</span>
+<div class="a">Para domar o corpo, expiar os pecados, e pedir a Deus bons pastores, a exemplo das Têmporas.</div></div>
+<div class="footnote">Cf. Tractos nº 14, 18 e 66 (Têmporas e jejum).</div>
+<div class="qa"><span class="q">60) Que dias de festa se guardam?</span>
+<div class="a">O ano litúrgico, com o Advento, Natal, Epifania, Quaresma, Páscoa, Ascensão, Pentecostes, as festas da Virgem, dos Apóstolos e dos Santos.</div></div>
+<div class="footnote">Cf. Tractos nº 16 (Advento) e nº 56 (Dias Santos observados na Igreja Inglesa).</div>
+</div>
+</section>
+<section id="completar"><h2>A completar</h2>
+<p>Partes do original ainda não reescritas: Orações iniciais, Credo artigo por artigo, Padre-Nosso e Ave-Maria, Mandamentos 1º ao 5º e 7º ao 10º, Preceitos da Igreja, Virtudes, Dons, Bem-aventuranças, Obras de misericórdia, Pecados, Novíssimos, Festas, Breve História da Religião e da Igreja (com a história anglicana: Concílio de Whitby, Henrique VIII, o Livro de Oração Comum, o Movimento de Oxford e o Anglo-Catolicismo).</p>
+</section>
+</div>
+
+<!-- BOTÃO VOLTAR AO TOPO -->
+<button id="backToTop" title="Voltar ao topo">
+  ↑
+</button>
+
+<script>
+  // ===== TEMA CLARO/ESCURO COM PERSISTÊNCIA =====
+  const toggleBtn = document.getElementById('toggleTheme');
+  const body = document.body;
+
+  // Função para aplicar o tema
+  function applyTheme(isDark) {
+    if (isDark) {
+      body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️';
+    } else {
+      body.classList.remove('dark-mode');
+      toggleBtn.textContent = '🌙';
+    }
+    localStorage.setItem('catecismo-dark-mode', isDark ? 'true' : 'false');
+  }
+
+  // Carregar o tema salvo ao iniciar
+  function loadTheme() {
+    const saved = localStorage.getItem('catecismo-dark-mode');
+    // Se não houver preferência salva, usar o modo claro por padrão
+    if (saved === null) {
+      applyTheme(false);
+      return;
+    }
+    const isDark = saved === 'true';
+    applyTheme(isDark);
+  }
+
+  // Alternar o tema ao clicar no botão
+  toggleBtn.addEventListener('click', function() {
+    const isDark = body.classList.contains('dark-mode');
+    applyTheme(!isDark);
+  });
+
+  // Carregar o tema quando a página carregar
+  loadTheme();
+
+// ===== SISTEMA DE PESQUISA =====
+const searchInput = document.getElementById('searchInput');
+const book = document.getElementById('book');
+
+// Criar elemento para mensagem de nenhum resultado
+const noResults = document.createElement('div');
+noResults.id = 'noResults';
+noResults.innerHTML = '<p>🔍 Nenhum resultado encontrado para "<span id="searchTerm"></span>"</p>';
+noResults.style.display = 'none';
+book.appendChild(noResults);
+
+// Função para limpar highlights anteriores
+function clearHighlights() {
+  document.querySelectorAll('.search-highlight').forEach(el => {
+    const parent = el.parentNode;
+    const text = el.textContent;
+    const textNode = document.createTextNode(text);
+    parent.replaceChild(textNode, el);
+    parent.normalize();
+  });
+}
+
+// Função principal de pesquisa
+function performSearch() {
+  const term = searchInput.value.trim().toLowerCase();
+  document.getElementById('searchTerm').textContent = term;
+
+  // Se a busca estiver vazia, resetar
+  if (term === '') {
+    resetSearch();
+    return;
+  }
+
+  // Limpar highlights anteriores
+  clearHighlights();
+
+  // Selecionar todos os elementos que contêm texto pesquisável
+  const elements = document.querySelectorAll('.qa, .prayer-card, .chapter, .section, p, li, .prayer, h3, h4, .prayer-content, .prayer-latin, .prayer-portuguese');
+  let found = 0;
+  let firstMatch = null;
+
+  elements.forEach(el => {
+    // Verificar se o elemento tem texto
+    const text = el.textContent.toLowerCase();
+    const match = text.includes(term);
+
+    if (match) {
+      el.classList.remove('search-hidden');
+      found++;
+      
+      // Destacar o termo no elemento
+      highlightText(el, term);
+      
+      // Guardar o primeiro elemento encontrado para scroll
+      if (!firstMatch) {
+        firstMatch = el;
+      }
+    } else {
+      el.classList.add('search-hidden');
+    }
+  });
+
+  // Mostrar/esconder mensagem de nenhum resultado
+  if (found === 0) {
+    noResults.style.display = 'block';
+  } else {
+    noResults.style.display = 'none';
+    // Scroll para o primeiro resultado
+    if (firstMatch) {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+
+// Função para destacar o termo em um elemento
+function highlightText(el, term) {
+  // Percorrer apenas os nós de texto diretos do elemento
+  const walker = document.createTreeWalker(
+    el,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: function(node) {
+        // Ignorar nós que já estão dentro de um highlight
+        if (node.parentElement.classList.contains('search-highlight')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        // Ignorar nós vazios ou com apenas espaços
+        if (!node.textContent.trim()) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+
+  const textNodes = [];
+  let node;
+  while (node = walker.nextNode()) {
+    textNodes.push(node);
+  }
+
+  // Processar cada nó de texto
+  textNodes.forEach(node => {
+    const text = node.textContent;
+    const lowerText = text.toLowerCase();
+    let index = lowerText.indexOf(term);
+    
+    if (index !== -1) {
+      const fragment = document.createDocumentFragment();
+      let lastIndex = 0;
+      
+      while (index !== -1) {
+        // Texto antes do termo
+        if (index > lastIndex) {
+          fragment.appendChild(document.createTextNode(text.substring(lastIndex, index)));
+        }
+        
+        // O termo destacado
+        const highlight = document.createElement('span');
+        highlight.className = 'search-highlight';
+        highlight.textContent = text.substring(index, index + term.length);
+        fragment.appendChild(highlight);
+        
+        lastIndex = index + term.length;
+        index = lowerText.indexOf(term, lastIndex);
+      }
+      
+      // Texto após o último termo
+      if (lastIndex < text.length) {
+        fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+      }
+      
+      // Substituir o nó original pelo fragmento
+      node.parentNode.replaceChild(fragment, node);
+    }
+  });
+}
+
+// Função para resetar a pesquisa
+function resetSearch() {
+  // Limpar highlights
+  clearHighlights();
+  
+  // Mostrar todos os elementos
+  document.querySelectorAll('.qa, .prayer-card, .chapter, .section, p, li, .prayer, h3, h4, .prayer-content, .prayer-latin, .prayer-portuguese').forEach(el => {
+    el.classList.remove('search-hidden');
+  });
+  
+  // Esconder mensagem de nenhum resultado
+  noResults.style.display = 'none';
+}
+
+// Event listeners
+searchInput.addEventListener('input', performSearch);
+searchInput.addEventListener('search', function() {
+  if (this.value === '') {
+    resetSearch();
+  }
+});
+
+// ===== BOTÃO VOLTAR AO TOPO =====
+const backToTopBtn = document.getElementById('backToTop');
+
+// Mostrar/esconder o botão conforme a rolagem
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
+});
+
+// Voltar ao topo com animação suave
+backToTopBtn.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+
+</body>
+</html>
